@@ -47,6 +47,7 @@
   </div>
   <div id="modal-root"></div>
   <div id="toast" role="status" aria-live="polite"></div>
+  <script src="cookbooks.js"></script>
   <script>
 /* Family Food Planner V1 – client-side, no login, prices are indicative not live */
 (() => {
@@ -107,6 +108,13 @@ recipe('d15','dinner','Lachs mit Reis und Gemüse','🐟',30,[['salmon',600],['r
 recipe('d16','dinner','Rahmgeschnetzeltes','🍲',30,[['chicken',650],['cream',350],['onion',180],['rice',400],['oil',15]],["Reis garen.","Zwiebeln und Pouletstreifen vollständig durchbraten.","Mit Rahm aufkochen und servieren."],['Klassiker'],true);
 recipe('d17','dinner','Gemüse-Quiche ohne Boden','🥧',40,[['eggs',7],['broccoli',450],['carrot',350],['milk',250],['cheese',200],['flour',90]],["Gemüse vorkochen.","Eier, Milch, Mehl und Käse verquirlen.","Alles in einer Form bei 190 °C ca. 30 Minuten backen."],['Vegetarisch'],true);
 const recipeById=Object.fromEntries(R.map(r=>[r.id,r]));
+// Frei nutzbare, mitgelieferte Original-Rezeptsammlungen. Kein Upload privater Bücher nach GitHub.
+const builtInCookbooks=Array.isArray(window.FamilyFoodBuiltInCookbooks)?window.FamilyFoodBuiltInCookbooks:[];
+for(const r of builtInCookbooks){
+ if(!r||typeof r.id!=='string'||recipeById[r.id]||!['breakfast','lunch','dinner'].includes(r.type)||!Array.isArray(r.ingredients)||!r.ingredients.length||!r.ingredients.every(x=>Array.isArray(x)&&products[x[0]]&&Number.isFinite(x[1])&&x[1]>0)||!Array.isArray(r.steps)||!r.steps.length)continue;
+ R.push(r);recipeById[r.id]=r;
+}
+
 const days=['Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag','Sonntag'];
 const typeLabels={breakfast:'Frühstück',lunch:'Mittagessen',dinner:'Abendessen'};
 const orderTypes=['breakfast','lunch','dinner'];
@@ -122,7 +130,7 @@ let saved=load();
 let storedConfig={...(saved?.config||{})};
 // Früher automatisch gesetzte Ernährungsfilter werden bei der Migration neutralisiert.
 if(!saved?.appVersion){storedConfig.noOnion=false;storedConfig.noCream=false;storedConfig.noSalmon=false;storedConfig.highProtein=false;}
-let state={config:{budget:180,people:3,start:nextMonday(),noOnion:false,noCream:false,noSalmon:false,highProtein:false,pantry:false,preferCookbooks:true,memberNames:'',...storedConfig},plan:saved?.plan||null,checked:saved?.checked||{},extras:saved?.extras||[],userRecipes:[],nutritionLogs:Array.isArray(saved?.nutritionLogs)?saved.nutritionLogs.filter(x=>x&&typeof x==='object'&&/^\d{4}-\d\d-\d\d$/.test(x.date)&&Number.isInteger(x.person)&&x.person>=0&&x.person<100&&orderTypes.includes(x.type)&&x.nutrients&&typeof x.nutrients==='object'&&['kcal','protein','carbs','fat','fiber'].every(k=>Number.isFinite(x.nutrients[k])&&x.nutrients[k]>=0)).slice(-1000):[],nutritionDay:0,nutritionPerson:0,view:'plan',filter:'Alle'};
+let state={config:{budget:180,people:3,start:nextMonday(),noOnion:false,noCream:false,noSalmon:false,highProtein:false,pantry:false,preferCookbooks:true,bookStyle:'mixed',memberNames:'',...storedConfig},plan:saved?.plan||null,checked:saved?.checked||{},extras:saved?.extras||[],userRecipes:[],nutritionLogs:Array.isArray(saved?.nutritionLogs)?saved.nutritionLogs.filter(x=>x&&typeof x==='object'&&/^\d{4}-\d\d-\d\d$/.test(x.date)&&Number.isInteger(x.person)&&x.person>=0&&x.person<100&&orderTypes.includes(x.type)&&x.nutrients&&typeof x.nutrients==='object'&&['kcal','protein','carbs','fat','fiber'].every(k=>Number.isFinite(x.nutrients[k])&&x.nutrients[k]>=0)).slice(-1000):[],nutritionDay:0,nutritionPerson:0,view:'plan',filter:'Alle'};
 
 function validCustomRecipe(r){
  return r&&typeof r.id==='string'&&r.id.startsWith('user-')&&typeof r.name==='string'&&r.name.length>0&&orderTypes.includes(r.type)&&Array.isArray(r.ingredients)&&r.ingredients.length>0&&r.ingredients.every(i=>Array.isArray(i)&&products[i[0]]&&Number.isFinite(i[1])&&i[1]>0)&&Array.isArray(r.steps)&&r.steps.length>0&&r.steps.every(x=>typeof x==='string');
