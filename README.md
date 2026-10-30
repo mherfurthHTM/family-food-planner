@@ -1,8 +1,16 @@
-# Family Food Planner – Migros (Version 1.4)
+# Family Food Planner – Migros (Version 1.5)
 
 Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
 **Online:** https://mherfurthhtm.github.io/family-food-planner/
+
+## Stammfiliale Herzogenbuchsee (ab Version 1.5)
+
+- **Migros MM Herzogenbuchsee**, Bernstrasse 33, 3360 Herzogenbuchsee, ist als feste Stammfiliale in den App-Einstellungen hinterlegt.
+- Bei der Produktzuordnung in der Einkaufsliste wird darauf hingewiesen, in Migros.ch den Modus **«In der Filiale einkaufen»** und die Filiale **Migros MM Herzogenbuchsee** auszuwählen.
+- Für das Budget sind die Preise weiterhin nur **lokale Richtpreise**, ausser sie wurden je Produkt manuell erfasst; auch manuelle Preise werden nicht live geprüft.
+- Die Software hat **noch keinen automatischen Zugriff auf die Verfügbarkeit, exakten Filialpreise oder das gesamte Sortiment** dieser Filiale. Das muss vor einer Livebudget-Zusage über eine zulässige Datenquelle gelöst werden.
+- Migros weist selbst darauf hin, dass Filial- und Onlinesortiment sowie teilweise Preise unterschiedlich sein können: [Migros Hilfe zum Filialsortiment](https://support.migros.ch/hc/de/articles/32900760025106-Ich-will-etwas-bestimmtes-auf-die-Einkaufsliste-setzen-und-finde-es-nicht).
 
 ## Das gesamte Migros-Sortiment statt nur Eigenmarken (neu in 1.4)
 
