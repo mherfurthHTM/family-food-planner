@@ -95,7 +95,7 @@ window.FamilyFoodBuiltInCookbooks = [
     "id": "hearty-b03",
     "source": "Deftige Küche",
     "type": "breakfast",
-    "name": "Schinkenloser Bauern-Toast mit Ei",
+    "name": "Herzhafter Bauern-Toast mit Ei",
     "emoji": "🥪",
     "min": 15,
     "ingredients": [
@@ -1079,7 +1079,7 @@ window.FamilyFoodBuiltInCookbooks = [
     "id": "fitness-d04",
     "source": "Fitnessküche",
     "type": "dinner",
-    "name": "Putenfreie Hack-Reis-Bowl mit Kidneybohnen",
+    "name": "Hack-Reis-Bowl mit Kidneybohnen",
     "emoji": "🍚",
     "min": 35,
     "ingredients": [
