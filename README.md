@@ -1,42 +1,39 @@
 # Family Food Planner – Migros (Version 1.0)
 
-Kostenlose Web-App für eine 7-Tage-Ernährungsplanung mit Frühstück, Mittag- und Abendessen, Rezepten, Budgetprüfung und Migros-Einkaufsliste. Sie funktioniert auf iPhones, Android-Geräten und Computern.
+Kostenlose, mobilfreundliche Web-App für die Wochenplanung: 7 Tage × Frühstück, Mittagessen und Abendessen, Rezepte, Budget und Migros-Einkaufsliste.
 
-## Kostenlos mit GitHub Pages veröffentlichen
+## App kostenlos mit GitHub Pages veröffentlichen
 
-1. Auf https://github.com/new ein **öffentliches** Repository `family-food-planner` erstellen. GitHub Free und GitHub Pages sind für öffentliche Repositories kostenlos.
-2. Falls du einen Assistenten für die Programmdateien verwendest, gib ihm den Link zum neuen Repository. Er kann die Dateien im Hauptverzeichnis hochladen. Alternativ die Dateien aus dem ZIP entpacken und über **Add file > Upload files** ins **Hauptverzeichnis** des Repositories hochladen. Wichtig: `index.html` muss direkt im Hauptverzeichnis liegen, nicht in einem zusätzlichen Ordner.
-3. Im Repository zu **Settings > Pages** gehen. Bei **Build and deployment / Source** `Deploy from a branch` wählen. `main` und `/(root)` auswählen, anschliessend **Save**.
-4. Nach der Veröffentlichung die App auf `https://mherfurthHTM.github.io/family-food-planner/` öffnen.
-5. Auf dem iPhone in Safari **Teilen > Zum Home-Bildschirm** wählen.
+1. Öffne [Settings → Pages](https://github.com/mherfurthHTM/family-food-planner/settings/pages).
+2. Unter **Build and deployment → Source** wähle **Deploy from a branch**.
+3. Als Branch wähle **main**, als Ordner **/(root)** und klicke **Save**.
+4. Die App ist danach unter https://mherfurthhtm.github.io/family-food-planner/ erreichbar, sobald GitHub Pages die Veröffentlichung abgeschlossen hat.
+5. Auf dem iPhone in Safari die Website öffnen, dann **Teilen → Zum Home-Bildschirm**.
 
-Die App benötigt weder API-Schlüssel noch ein bezahltes Hosting, eine Datenbank oder ein Konto bei Migros. Die Dateien sind statisch (HTML/CSS/JavaScript) und verlinken alles über relative Pfade, sodass GitHub Pages funktioniert.
+## Funktionen
 
-## Was die App kann
+- Automatische Menüplanung für 7 Tage und 3 Mahlzeiten pro Tag
+- Anzahl Personen und Wochenbudget frei anpassen (Standard: 3 Personen, CHF 180)
+- Rezepte mit Zutaten und Kochanleitungen
+- Wiederverwendung gemeinsamer Zutaten und Berechnung ganzer Einkaufspackungen
+- Einkaufsliste nach Kategorien; abhaken, ergänzen, kopieren und drucken
+- Gerichte austauschen und Wochenkosten neu berechnen
+- Einstellungen für Zwiebeln, Rahm, Lachs, proteinreiche Mahlzeiten und Grundvorrat
+- Lokale Speicherung im Browser, ohne Benutzerkonto
+- Installierbare Web-App mit Offline-Unterstützung nach dem ersten Laden
 
-- 7 Tage mit je 3 Mahlzeiten (21 Gerichte), Rezepte und Zubereitung
-- Haushaltsgrösse und Budget frei anpassen, Voreinstellung 3 Personen und CHF 180
-- Ganze Einkaufspackungen zusammenrechnen, Einkäufe nach Kategorie gruppieren
-- Ungewünschte Gerichte austauschen und Kosten neu berechnen
-- Zwiebeln, Rahm und Lachs ausschliessen; proteinreiche Gerichte bevorzugen
-- Vorhandenen Grundvorrat (Öl, Gewürze) berücksichtigen
-- Einkaufsliste abhaken, zusätzliche Produkte mit geschätztem Preis ergänzen, kopieren und drucken
-- Offline-Fähigkeit nach erstem erfolgreichem Laden über HTTPS, lokale Datenspeicherung im Browser
+## Projektdateien
 
-## Wichtige Grenzen
+- `index.html`: **Vollständige Anwendung** samt JavaScript und CSS (keine externen Abhängigkeiten)
+- `manifest.webmanifest`, `icon.svg`: App-Icon und Installation zum Home-Bildschirm
+- `sw.js`: Offline-Cache für statische Dateien
+- `.nojekyll`: für GitHub Pages
+- `README.md`: diese Anleitung
 
-**Die hinterlegten Migros-Preise sind unverbindliche Schätzwerte.** Es besteht keine Live-Migros-Schnittstelle. Produkte, Angebote, Preise, Packungsgrössen und Verfügbarkeit unterscheiden sich je nach Zeitpunkt und Filiale. Ein Einhalten des angezeigten Budgets garantiert keinen entsprechenden Kassenbetrag. Es findet keine automatische Bestellung bei Migros statt. Der Menüplan ist eine automatisierte heuristische Auswahl; bei sehr kleinen Budgets kann das Limit überschritten werden, und die App zeigt dann eine Warnung.
+## Kosten und wichtige Einschränkungen
 
-Die Daten verbleiben im Browser des verwendeten Geräts. Sie werden nicht automatisch zwischen Geräten synchronisiert. Nach Löschen der Browserdaten können gespeicherte Einstellungen verloren gehen.
+**Der Betrieb auf GitHub Pages ist für ein öffentliches Repository im kostenlosen GitHub-Free-Tarif gratis, innerhalb der GitHub-Nutzungsgrenzen.** Es braucht keine kostenpflichtige API, keinen Server und keine Datenbank.
 
-## Dateien
+**Achtung: Preise und Produkte sind nur Schätzwerte, keine Live-Migros-Daten.** Die App garantiert keinen tatsächlichen Einkauf für den geplanten Betrag und prüft keine Filialverfügbarkeit oder Aktionen. Es wird nichts bei Migros bestellt.
 
-- `index.html`: Einstiegspunkt
-- `app.js`: Rezepte, Planung, Preis- und Packungsberechnung, Einkaufsliste
-- `styles.css`: Desktop- und Mobilansichten
-- `manifest.webmanifest`, `icon.svg`, `sw.js`: Installierbare Web-App und Offline-Cache
-- `.nojekyll`: deaktiviert Jekyll-Verarbeitung auf GitHub Pages
-
-## Technik / laufende Kosten
-
-Keine Framework-Abhängigkeiten, keine Datenbank, kein Cloud-KI-API-Aufruf, keine bezahlten Komponenten. GitHub Pages ist für öffentliche GitHub-Free-Repositories gratis, im Rahmen der geltenden Nutzungsgrenzen.
+Alle Einstellungen, Pläne und Häkchen werden nur im Browser auf deinem Gerät gespeichert. Es gibt keine automatische Synchronisierung. Wenn Browserdaten gelöscht werden, können die Daten verloren gehen.
