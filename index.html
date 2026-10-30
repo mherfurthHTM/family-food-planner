@@ -230,13 +230,23 @@ function generate(){
  let best=null,bestScore=-Infinity,cheapest=[];
  for(let n=0;n<140;n++){
   let picks={};for(let t of orderTypes){let list=shuffled(pools[t]);if(state.config.highProtein&&n%5!==0){list.sort((a,b)=>Number(b.protein)-Number(a.protein)+(Math.random()-.5)*.9)}
-if(state.config.preferCookbooks&&list.some(r=>r.userAdded)){const own=shuffled(list.filter(r=>r.userAdded)),standard=shuffled(list.filter(r=>!r.userAdded));const desired=Math.min(5,own.length);picks[t]=shuffled([...own.slice(0,desired),...standard.slice(0,7-desired)]);if(picks[t].length<7)picks[t].push(...own.slice(desired,desired+7-picks[t].length))}else picks[t]=list.slice(0,7)}
+const style=state.config.bookStyle||'mixed';
+const targetSource=style==='hearty'?'Deftige Küche':style==='fitness'?'Fitnessküche':'';
+const preferred=targetSource?list.filter(r=>r.source===targetSource):state.config.preferCookbooks?list.filter(r=>r.userAdded||r.cookbook):[];
+if(preferred.length){
+ const preferredRandom=shuffled(preferred),others=shuffled(list.filter(r=>!preferred.includes(r)));
+ const maxFromBook=Math.min(targetSource?7:5,preferredRandom.length);
+ picks[t]=shuffled([...preferredRandom.slice(0,maxFromBook),...others.slice(0,7-maxFromBook)]);
+ if(picks[t].length<7)picks[t].push(...preferredRandom.slice(maxFromBook,maxFromBook+7-picks[t].length));
+}else picks[t]=list.slice(0,7);}
   let plan=days.map((_,i)=>Object.fromEntries(orderTypes.map(t=>[t,picks[t][i].id])));
   let cost=basket(plan).total;
   if(cheapest.length<4||cost<cheapest[cheapest.length-1].cost){cheapest.push({plan,cost});cheapest.sort((a,b)=>a.cost-b.cost);cheapest=cheapest.slice(0,4)}
   if(cost<=budget){let target=budget*.89;let protein=plan.flatMap(d=>orderTypes.map(t=>recipeById[d[t]])).filter(r=>r.protein).length;
-    let fromBooks=plan.flatMap(d=>orderTypes.map(t=>recipeById[d[t]])).filter(r=>r.userAdded).length;
-     let score=42-(Math.abs(cost-target)/Math.max(budget,1))*18+protein*.32+(state.config.preferCookbooks?fromBooks*2:0)+Math.random()*3;
+    let fromBooks=plan.flatMap(d=>orderTypes.map(t=>recipeById[d[t]])).filter(r=>r.userAdded||r.cookbook).length;
+     const selectedBook=state.config.bookStyle==='hearty'?'Deftige Küche':state.config.bookStyle==='fitness'?'Fitnessküche':null;
+     const selectedMatches=selectedBook?plan.flatMap(d=>orderTypes.map(t=>recipeById[d[t]])).filter(r=>r.source===selectedBook).length:0;
+     let score=42-(Math.abs(cost-target)/Math.max(budget,1))*18+protein*.32+(state.config.preferCookbooks?fromBooks*.7:0)+selectedMatches*2+Math.random()*3;
     if(score>bestScore){bestScore=score;best={plan,cost}}}
  }
  // Improve high-cost plans with strategic recipe substitutions, retaining variety.
@@ -381,7 +391,7 @@ function textList(){let b=basket(state.plan);let str=`FAMILY FOOD PLANNER – MI
 function toast(message){let t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),3000)}
 async function copyList(){let text=textList();try{await navigator.clipboard.writeText(text);toast('Einkaufsliste kopiert ✓')}catch{let el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();try{document.execCommand('copy');toast('Einkaufsliste kopiert ✓')}catch{toast('Kopieren hier leider nicht möglich')}el.remove()}}
 function recipeDialog(day,type){let r=recipeById[state.plan[day][type]];const sum=r.ingredients.map(([id,q])=>`<li><strong>${esc(products[id].name)}</strong><span>${formatAmount(q*state.config.people/3,products[id].unit)}</span></li>`).join('');modalRoot.innerHTML=`<div class="modal-backdrop" data-action="close-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><button class="close-btn" aria-label="Schliessen" data-action="close">×</button><div class="food-illustration">${r.emoji}</div><div class="kicker">${esc(days[day])} · ${typeLabels[type]}</div><h2 id="modal-title">${esc(r.name)}</h2><p>⏱ ${r.min} Minuten · Für ${state.config.people} ${state.config.people===1?'Person':'Personen'}${r.userAdded?' · '+esc(r.source):''}</p></div><div class="modal-body"><div class="pill-list">${r.tags.map(s=>`<span class="pill">${esc(s)}</span>`).join('')}</div><h3>Zutaten</h3><ul class="ingredient-list">${sum}</ul><h3>Zubereitung</h3><ol class="steps">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><div class="modal-actions"><button class="btn primary" data-action="swap" data-day="${day}" data-type="${type}">⇄ Gericht austauschen</button><button class="btn" data-action="close">Fertig</button></div></div></div></div>`}
-function swapDialog(day,type){let current=state.plan[day][type];let rCurrent=recipeById[current];const candidates=R.filter(r=>r.type===type&&available(r)&&r.id!==current);let prev=basket(state.plan).total;let options=candidates.map(r=>{let copy=state.plan.map(x=>({...x}));copy[day][type]=r.id;return {r,total:basket(copy).total}}).sort((a,b)=>Number(Boolean(b.r.userAdded))-Number(Boolean(a.r.userAdded))||a.total-b.total).slice(0,16);
+function swapDialog(day,type){let current=state.plan[day][type];let rCurrent=recipeById[current];const candidates=R.filter(r=>r.type===type&&available(r)&&r.id!==current);let prev=basket(state.plan).total;let options=candidates.map(r=>{let copy=state.plan.map(x=>({...x}));copy[day][type]=r.id;return {r,total:basket(copy).total}}).sort((a,b)=>Number(Boolean(b.r.userAdded||b.r.cookbook))-Number(Boolean(a.r.userAdded||a.r.cookbook))||a.total-b.total).slice(0,16);
 modalRoot.innerHTML=`<div class="modal-backdrop" data-action="close-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><button class="close-btn" aria-label="Schliessen" data-action="close">×</button><div class="kicker">${days[day]} · ${typeLabels[type]}</div><h2 id="modal-title">Gericht austauschen</h2><p>Aktuell: ${esc(rCurrent.name)} · Geschätzter Einkauf: ${money(prev)}</p></div><div class="modal-body"><p class="smallprint">Der Betrag zeigt, was der gesamte Wocheneinkauf nach dem Austausch ungefähr kostet.</p>${options.map(({r,total})=>`<div class="swap-row"><span class="food-pict">${r.emoji}</span><span class="swap-text"><strong>${esc(r.name)}</strong><small>${r.min} Min. · ${money(total)} gesamt ${total<=state.config.budget?'✓ im Budget':'⚠ über Budget'}</small></span><button class="btn small ${total<=state.config.budget?'primary':''}" data-action="choose" data-day="${day}" data-type="${type}" data-id="${r.id}">Wählen</button></div>`).join('')}<div class="modal-actions"><button class="btn" data-action="recipe" data-day="${day}" data-type="${type}">‹ Zurück</button></div></div></div></div>`}
 function closeModal(){modalRoot.innerHTML=''}
 function switchView(view){state.view=view;state.filter='Alle';closeModal();render();window.scrollTo({top:0,behavior:'smooth'});}
