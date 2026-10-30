@@ -1,8 +1,19 @@
-# Family Food Planner – Migros (Version 1.2)
+# Family Food Planner – Migros (Version 1.3)
 
 Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
 **Online:** https://mherfurthhtm.github.io/family-food-planner/
+
+## Zwei kostenlose Kochbücher (neu in 1.3)
+
+Im Bereich **Bücher** sind zwei mitgelieferte Rezeptsammlungen hinterlegt, die wir selbst für die App erstellt haben. Es handelt sich **nicht** um Kopien kommerzieller Kochbücher:
+
+- **Deftige Küche:** 12 herzhafte Rezepte, zum Beispiel Älplermagronen, Hack-Hörnli, Chili con Carne, Rahmgeschnetzeltes, Kartoffelgratin und Rösti mit Spiegelei.
+- **Fitnessküche:** 12 Rezepte mit Schwerpunkt Eiweiss, etwa Poulet-Reis-Bowl, Skyr-Quark-Bowl, Omelett mit Hüttenkäse, Thon-Bohnen-Salat oder Lachs-Spinat-Reispfanne.
+
+**So verwendest du die Kochbücher:** Im Wochenplan bei **Kochstil** «Gemischt», «Deftige Küche» oder «Fitnessküche» wählen und neu berechnen. Oder unter **Bücher** auf «Diese Küche für die Woche bevorzugen» tippen. In der Rezeptansicht kannst du Zutaten, Mengen, Zubereitung und geschätzte Nährwerte für eine Portion ansehen. Der Algorithmus bevorzugt die gewählte Sammlung, kann aber andere Gerichte ergänzen, um sieben abwechslungsreiche Frühstücke, Mittag- und Abendessen zu planen und das Budget möglichst einzuhalten.
+
+Alle 24 Rezepte gehören als statische Daten zur App in `cookbooks.js`. Es gibt keine laufende Abfrage, keinen externen Server und keine laufenden Gebühren. Die bestehende **private** Importfunktion für eigene Bücher bleibt erhalten. Andere Rezeptdaten, Einkaufslisten, Einstellungen und Ernährungstagebuch bleiben auf dem lokalen Gerät.
 
 ## Ernährungstagebuch und Nährwerte
 
