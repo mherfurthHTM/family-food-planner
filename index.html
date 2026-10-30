@@ -113,6 +113,71 @@ let storedConfig={...(saved?.config||{})};
 // Früher automatisch gesetzte Ernährungsfilter werden bei der Migration neutralisiert.
 if(!saved?.appVersion){storedConfig.noOnion=false;storedConfig.noCream=false;storedConfig.noSalmon=false;storedConfig.highProtein=false;}
 let state={config:{budget:180,people:3,start:nextMonday(),noOnion:false,noCream:false,noSalmon:false,highProtein:false,pantry:false,preferCookbooks:true,...storedConfig},plan:saved?.plan||null,checked:saved?.checked||{},extras:saved?.extras||[],userRecipes:[],view:'plan',filter:'Alle'};
+
+function validCustomRecipe(r){
+ return r&&typeof r.id==='string'&&r.id.startsWith('user-')&&typeof r.name==='string'&&r.name.length>0&&orderTypes.includes(r.type)&&Array.isArray(r.ingredients)&&r.ingredients.length>0&&r.ingredients.every(i=>Array.isArray(i)&&products[i[0]]&&Number.isFinite(i[1])&&i[1]>0)&&Array.isArray(r.steps)&&r.steps.length>0&&r.steps.every(x=>typeof x==='string');
+}
+// Eigene Rezepte gehören ausschliesslich dem lokalen Gerätespeicher, nicht zum öffentlichen GitHub-Repo.
+state.userRecipes=Array.isArray(saved?.userRecipes)?saved.userRecipes.filter(validCustomRecipe).slice(0,500):[];
+for(const r of state.userRecipes){if(!recipeById[r.id]){R.push(r);recipeById[r.id]=r;}}
+function normaliseCustomRecipe(raw,book){
+ if(!raw||typeof raw!=='object')throw Error('Ungültiger Rezepteintrag');
+ const name=String(raw.name||'').trim();
+ if(name.length<2||name.length>140)throw Error('Rezeptname fehlt oder ist zu lang');
+ const type=String(raw.type||'');
+ if(!orderTypes.includes(type))throw Error(name+': Typ muss breakfast, lunch oder dinner sein');
+ const servings=Number(raw.servings||3);
+ if(!Number.isInteger(servings)||servings<1||servings>100)throw Error(name+': ungültige Portionenzahl');
+ const items=raw.ingredients;
+ if(!Array.isArray(items)||items.length===0||items.length>60)throw Error(name+': Zutaten fehlen');
+ const ingredients=items.map(i=>{
+  const id=String(Array.isArray(i)?i[0]:(i.productId||i.id)||'');
+  const q=Number(Array.isArray(i)?i[1]:i.quantity);
+  if(!products[id]||!Number.isFinite(q)||q<=0||q>100000)throw Error(name+': Zutat '+id+' ist nicht im Produktkatalog oder Menge ungültig');
+  return [id,Math.round(q*3/servings*1000)/1000];
+ });
+ const steps=Array.isArray(raw.steps)?raw.steps.map(x=>String(x).trim()).filter(Boolean):[];
+ if(!steps.length||steps.length>30||steps.some(x=>x.length>1000))throw Error(name+': Zubereitung fehlt oder ist zu lang');
+ const source=String(raw.source||book||'Mein Kochbuch').trim().slice(0,90)||'Mein Kochbuch';
+ return {id:'user-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10),type,name:name.slice(0,140),emoji:({breakfast:'🥣',lunch:'🍽️',dinner:'🍲'})[type],min:Math.min(300,Math.max(1,Number(raw.minutes||raw.min)||30)),ingredients,steps,tags:['Aus Kochbuch'],protein:Boolean(raw.protein),source,userAdded:true};
+}
+function downloadJSON(filename,object){
+ const url=URL.createObjectURL(new Blob([JSON.stringify(object,null,2)],{type:'application/json'}));
+ const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();
+ setTimeout(()=>URL.revokeObjectURL(url),1500);
+}
+async function importBookFile(file){
+ if(!file)return;
+ if(file.size>2*1024*1024){toast('Bitte eine Rezept-JSON unter 2 MB auswählen');return;}
+ try{
+  const data=JSON.parse(await file.text()),list=Array.isArray(data)?data:data.recipes;
+  if(!Array.isArray(list)||!list.length)throw Error('Die Datei braucht eine recipes-Liste');
+  if(list.length>500)throw Error('Maximal 500 Rezepte pro Datei');
+  const book=String(Array.isArray(data)?'Meine Rezepte':data.book||'Mein Kochbuch').trim().slice(0,90);
+  const parsed=list.map(r=>normaliseCustomRecipe(r,book));
+  const existing=new Set(state.userRecipes.map(r=>r.source+'|'+r.name+'|'+r.type));
+  const unique=parsed.filter(r=>{const key=r.source+'|'+r.name+'|'+r.type;if(existing.has(key))return false;existing.add(key);return true;});
+  if(state.userRecipes.length+unique.length>500)throw Error('Maximal 500 eigene Rezepte; bitte zuerst einige entfernen');
+  state.userRecipes.push(...unique);
+  for(const r of unique){R.push(r);recipeById[r.id]=r;}
+  save();render();toast(unique.length+' neue Rezepte importiert ✓');
+ }catch(error){toast('Import fehlgeschlagen: '+String(error.message||error).slice(0,150));}
+}
+function removeCustomRecipe(id){
+ const r=state.userRecipes.find(x=>x.id===id);if(!r)return;
+ if(!confirm('Rezept «'+r.name+'» wirklich löschen?'))return;
+ state.userRecipes=state.userRecipes.filter(x=>x.id!==id);
+ const idx=R.findIndex(x=>x.id===id);if(idx>=0)R.splice(idx,1);
+ delete recipeById[id];if(state.plan&&state.plan.some(d=>orderTypes.some(t=>d[t]===id)))generate();else save();
+ render();toast('Rezept entfernt');
+}
+function exportCookbook(){
+ downloadJSON('meine-kochbuecher.json',{book:'Meine Kochbücher',recipes:state.userRecipes.map(r=>({source:r.source,name:r.name,type:r.type,servings:3,minutes:r.min,ingredients:r.ingredients,steps:r.steps,protein:r.protein}))});toast('Kochbücher exportiert ✓');
+}
+function exportExample(){
+ downloadJSON('kochbuch-vorlage.json',{book:'Familienrezepte',recipes:[{name:'Gemüsereis mit Ei',type:'lunch',servings:3,minutes:25,ingredients:[['rice',330],['eggs',5],['carrot',320],['peas',240],['oil',15]],steps:['Reis nach Packungsangabe garen.','Karotten klein schneiden und mit Erbsen in Öl braten.','Eier zugeben und stocken lassen, mit Reis vermengen.']}]});toast('Beispiel-Datei heruntergeladen');
+}
+
 function save(){try{localStorage.setItem('ffp-migros-v1',JSON.stringify({appVersion:2,config:state.config,plan:state.plan,checked:state.checked,extras:state.extras,userRecipes:state.userRecipes}))}catch{console.warn('Lokaler Speicher nicht verfügbar')}}
 function available(r){let c=state.config;return !(c.noOnion&&r.ingredients.some(([i])=>i==='onion'))&&!(c.noCream&&r.ingredients.some(([i])=>i==='cream'))&&!(c.noSalmon&&r.ingredients.some(([i])=>i==='salmon'))}
 function quantities(plan){let result={};if(!plan)return result;for(let day of plan)for(let type of orderTypes){let r=recipeById[day[type]];if(!r)continue;for(let [id,quantity] of r.ingredients)result[id]=(result[id]||0)+quantity*state.config.people/3;}return result}
@@ -146,12 +211,14 @@ function generate(){
  const budget=Number(state.config.budget)||180;
  let best=null,bestScore=-Infinity,cheapest=[];
  for(let n=0;n<140;n++){
-  let picks={};for(let t of orderTypes){let list=shuffled(pools[t]);if(state.config.highProtein&&n%5!==0){list.sort((a,b)=>Number(b.protein)-Number(a.protein)+(Math.random()-.5)*.9)}picks[t]=list.slice(0,7)}
+  let picks={};for(let t of orderTypes){let list=shuffled(pools[t]);if(state.config.highProtein&&n%5!==0){list.sort((a,b)=>Number(b.protein)-Number(a.protein)+(Math.random()-.5)*.9)}
+if(state.config.preferCookbooks&&list.some(r=>r.userAdded)){const own=shuffled(list.filter(r=>r.userAdded)),standard=shuffled(list.filter(r=>!r.userAdded));const desired=Math.min(5,own.length);picks[t]=shuffled([...own.slice(0,desired),...standard.slice(0,7-desired)]);if(picks[t].length<7)picks[t].push(...own.slice(desired,desired+7-picks[t].length))}else picks[t]=list.slice(0,7)}
   let plan=days.map((_,i)=>Object.fromEntries(orderTypes.map(t=>[t,picks[t][i].id])));
   let cost=basket(plan).total;
   if(cheapest.length<4||cost<cheapest[cheapest.length-1].cost){cheapest.push({plan,cost});cheapest.sort((a,b)=>a.cost-b.cost);cheapest=cheapest.slice(0,4)}
   if(cost<=budget){let target=budget*.89;let protein=plan.flatMap(d=>orderTypes.map(t=>recipeById[d[t]])).filter(r=>r.protein).length;
-    let score=42-(Math.abs(cost-target)/Math.max(budget,1))*18+protein*.32+Math.random()*3;
+    let fromBooks=plan.flatMap(d=>orderTypes.map(t=>recipeById[d[t]])).filter(r=>r.userAdded).length;
+     let score=42-(Math.abs(cost-target)/Math.max(budget,1))*18+protein*.32+(state.config.preferCookbooks?fromBooks*2:0)+Math.random()*3;
     if(score>bestScore){bestScore=score;best={plan,cost}}}
  }
  // Improve high-cost plans with strategic recipe substitutions, retaining variety.
@@ -188,8 +255,8 @@ function render(){syncNav();main.innerHTML=state.view==='plan'?planPage():state.
 function textList(){let b=basket(state.plan);let str=`FAMILY FOOD PLANNER – MIGROS\n${dateHeader()} · ${state.config.people} Personen · Budget ${money(state.config.budget)}\nGeschätzter Einkauf: ${money(b.total)}\n\n`;for(let cat of categories){let rows=b.rows.filter(x=>x.category===cat);if(!rows.length)continue;str+=`${cat.toUpperCase()}\n`;for(let r of rows)str+=`${state.checked[r.key]?'[x]':'[ ]'} ${r.name}: ${r.extra?'1 Stk.':`${r.packs} × ${formatAmount(r.pack,r.unit)}`} – ${money(r.cost)}\n`;str+='\n'}return str+'Preise sind Richtwerte; aktuelle Preise und Filialsortiment prüfen.'}
 function toast(message){let t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),3000)}
 async function copyList(){let text=textList();try{await navigator.clipboard.writeText(text);toast('Einkaufsliste kopiert ✓')}catch{let el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();try{document.execCommand('copy');toast('Einkaufsliste kopiert ✓')}catch{toast('Kopieren hier leider nicht möglich')}el.remove()}}
-function recipeDialog(day,type){let r=recipeById[state.plan[day][type]];const sum=r.ingredients.map(([id,q])=>`<li><strong>${esc(products[id].name)}</strong><span>${formatAmount(q*state.config.people/3,products[id].unit)}</span></li>`).join('');modalRoot.innerHTML=`<div class="modal-backdrop" data-action="close-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><button class="close-btn" aria-label="Schliessen" data-action="close">×</button><div class="food-illustration">${r.emoji}</div><div class="kicker">${esc(days[day])} · ${typeLabels[type]}</div><h2 id="modal-title">${esc(r.name)}</h2><p>⏱ ${r.min} Minuten · Für ${state.config.people} ${state.config.people===1?'Person':'Personen'}</p></div><div class="modal-body"><div class="pill-list">${r.tags.map(s=>`<span class="pill">${esc(s)}</span>`).join('')}</div><h3>Zutaten</h3><ul class="ingredient-list">${sum}</ul><h3>Zubereitung</h3><ol class="steps">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><div class="modal-actions"><button class="btn primary" data-action="swap" data-day="${day}" data-type="${type}">⇄ Gericht austauschen</button><button class="btn" data-action="close">Fertig</button></div></div></div></div>`}
-function swapDialog(day,type){let current=state.plan[day][type];let rCurrent=recipeById[current];const candidates=R.filter(r=>r.type===type&&available(r)&&r.id!==current);let prev=basket(state.plan).total;let options=candidates.map(r=>{let copy=state.plan.map(x=>({...x}));copy[day][type]=r.id;return {r,total:basket(copy).total}}).sort((a,b)=>a.total-b.total).slice(0,11);
+function recipeDialog(day,type){let r=recipeById[state.plan[day][type]];const sum=r.ingredients.map(([id,q])=>`<li><strong>${esc(products[id].name)}</strong><span>${formatAmount(q*state.config.people/3,products[id].unit)}</span></li>`).join('');modalRoot.innerHTML=`<div class="modal-backdrop" data-action="close-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><button class="close-btn" aria-label="Schliessen" data-action="close">×</button><div class="food-illustration">${r.emoji}</div><div class="kicker">${esc(days[day])} · ${typeLabels[type]}</div><h2 id="modal-title">${esc(r.name)}</h2><p>⏱ ${r.min} Minuten · Für ${state.config.people} ${state.config.people===1?'Person':'Personen'}${r.userAdded?' · '+esc(r.source):''}</p></div><div class="modal-body"><div class="pill-list">${r.tags.map(s=>`<span class="pill">${esc(s)}</span>`).join('')}</div><h3>Zutaten</h3><ul class="ingredient-list">${sum}</ul><h3>Zubereitung</h3><ol class="steps">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol><div class="modal-actions"><button class="btn primary" data-action="swap" data-day="${day}" data-type="${type}">⇄ Gericht austauschen</button><button class="btn" data-action="close">Fertig</button></div></div></div></div>`}
+function swapDialog(day,type){let current=state.plan[day][type];let rCurrent=recipeById[current];const candidates=R.filter(r=>r.type===type&&available(r)&&r.id!==current);let prev=basket(state.plan).total;let options=candidates.map(r=>{let copy=state.plan.map(x=>({...x}));copy[day][type]=r.id;return {r,total:basket(copy).total}}).sort((a,b)=>Number(Boolean(b.r.userAdded))-Number(Boolean(a.r.userAdded))||a.total-b.total).slice(0,16);
 modalRoot.innerHTML=`<div class="modal-backdrop" data-action="close-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-head"><button class="close-btn" aria-label="Schliessen" data-action="close">×</button><div class="kicker">${days[day]} · ${typeLabels[type]}</div><h2 id="modal-title">Gericht austauschen</h2><p>Aktuell: ${esc(rCurrent.name)} · Geschätzter Einkauf: ${money(prev)}</p></div><div class="modal-body"><p class="smallprint">Der Betrag zeigt, was der gesamte Wocheneinkauf nach dem Austausch ungefähr kostet.</p>${options.map(({r,total})=>`<div class="swap-row"><span class="food-pict">${r.emoji}</span><span class="swap-text"><strong>${esc(r.name)}</strong><small>${r.min} Min. · ${money(total)} gesamt ${total<=state.config.budget?'✓ im Budget':'⚠ über Budget'}</small></span><button class="btn small ${total<=state.config.budget?'primary':''}" data-action="choose" data-day="${day}" data-type="${type}" data-id="${r.id}">Wählen</button></div>`).join('')}<div class="modal-actions"><button class="btn" data-action="recipe" data-day="${day}" data-type="${type}">‹ Zurück</button></div></div></div></div>`}
 function closeModal(){modalRoot.innerHTML=''}
 function switchView(view){state.view=view;state.filter='Alle';closeModal();render();window.scrollTo({top:0,behavior:'smooth'});}
