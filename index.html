@@ -253,6 +253,95 @@ function listPage(){let b=basket(state.plan),done=b.rows.filter(p=>state.checked
  <section class="form-card"><h2>Etwas hinzufügen?</h2><p>Weitere Einkäufe fliessen in die Budgetrechnung ein.</p><form class="extra-form" id="extra-form"><label class="sr-only" for="extra-name">Produkt</label><input id="extra-name" name="name" placeholder="z. B. Mineralwasser" maxlength="60" required><label class="sr-only" for="extra-price">Preis CHF</label><input id="extra-price" name="price" placeholder="CHF" type="number" min="0" max="1000" step="0.05" required><button class="btn primary" type="submit">+ Hinzufügen</button></form></section></div>
  <aside class="summary-card"><h3>Dein Einkaufsbudget</h3><div class="summary-line"><span>Produkte</span><strong>${b.rows.length}</strong></div><div class="summary-line"><span>Bereits abgehakt</span><strong>${done}</strong></div><div class="summary-line"><span>Verfügbares Budget</span><strong>${money(state.config.budget)}</strong></div><div class="summary-divider"></div><div class="summary-total"><span>Geschätzter Betrag</span><strong>${money(b.total)}</strong></div><div class="summary-line"><span>${b.total>state.config.budget?'Budgetüberschreitung':'Verbleibend'}</span><strong class="${b.total>state.config.budget?'budget-over':'budget-ok'}">${money(Math.abs(state.config.budget-b.total))}</strong></div><div class="summary-divider"></div><button class="btn primary wide" data-action="copy">⧉ Einkaufsliste kopieren</button><button class="btn wide" data-action="print">⇩ Drucken / PDF</button><button class="btn wide" data-action="reset-checks">↻ Häkchen zurücksetzen</button><p class="smallprint">Die Preise sind Schätzwerte. Bitte vor dem Einkauf mit den Migros-Angeboten vergleichen. Nicht automatisch an Migros übertragbar.</p></aside></div>`}
 
+
+// Nährwert-Prototyp, NICHT originale Migros-Nährwertetiketten. Generische, gerundete Richtwerte
+// [kcal, Eiweiss(g), Kohlenhydrate(g), Fett(g), Ballaststoffe(g)] je 100 g / 100 ml,
+// bei "Stk." je einzelnes Stück. Zutatenmengen in Rezepten sind für 3 Personen angegeben.
+const nutritionProfiles = {
+ oats:[370,13,60,7,10],milk:[64,3.3,4.8,3.5,0],yogurt:[62,3.8,4.5,3.5,0],quark:[67,12,4,0.3,0],
+ skyr:[60,11,4,0.3,0],bread:[230,8,45,1.6,5],eggs:[76,6.5,0.6,5.2,0],
+ banana:[89,1.1,23,0.3,2.6],apple:[52,0.3,14,0.2,2.4],pears:[57,0.4,15,0.1,3.1],
+ berries:[50,0.9,9,0.3,5],peanut:[600,25,14,50,6],jam:[250,0.4,62,0.1,1],
+ rice:[360,7,79,0.6,1],spaghetti:[355,12,72,1.6,3],pasta:[350,12,72,1.5,3],
+ couscous:[370,12,77,0.6,5],potato:[77,2,17,0.1,2.2],sweetpotato:[86,1.6,20,0.1,3],
+ tortilla:[180,5,29,4,2.5],lentils:[340,24,52,1.5,11],kidney:[105,7,14,0.5,7],
+ chickpea:[120,6,17,2,6],passata:[30,1.5,5,0.2,1.5],tinnedtomato:[25,1.2,4,0.2,1.2],
+ corn:[90,3,17,1.2,3],coconut:[180,2,3,17,0],
+ chicken:[110,23,0,2,0],mince:[215,20,0,15,0],tofu:[120,13,2,7,1],
+ tuna:[110,24,0,1,0],salmon:[200,20,0,13,0],mozzarella:[250,18,2,19,0],
+ feta:[260,14,2,21,0],cheese:[375,28,0,29,0],cottage:[90,12,3,3,0],
+ carrot:[41,1,10,0.2,3],zucchini:[17,1.2,3,0.3,1],broccoli:[34,3,7,0.4,2.6],
+ pepper:[30,1,6,0.3,2],cucumber:[45,2,9,0.3,2],tomato:[20,1,4,0.2,1.2],
+ salad:[20,1.5,3,0.3,1.5],lemon:[30,0.6,10,0.2,1],onion:[40,1,9,0.1,1.7],
+ spinach:[25,3,2,0.4,2],peas:[80,5.5,14,0.4,5],
+ oil:[900,0,0,100,0],salt:[0,0,0,0,0],pepperground:[250,10,40,3,25],
+ paprika:[280,15,30,12,30],cinnamon:[250,4,80,1,50],broth:[170,7,20,4,2],
+ herbs:[250,9,30,4,30],flour:[350,10,72,1,3],cream:[335,2,3,35,0]
+};
+const nutrientKeys=['kcal','protein','carbs','fat','fiber'];
+function zeroNutrients(){return {kcal:0,protein:0,carbs:0,fat:0,fiber:0}}
+function nutrientAdd(total,values){for(const k of nutrientKeys)total[k]+=(Number(values[k])||0);return total}
+function nutrientRound(values){let out={};for(const k of nutrientKeys)out[k]=Math.round((Number(values[k])||0)*10)/10;return out}
+function recipeNutrients(r,portions=1){
+ const result=zeroNutrients(),missing=[];
+ if(!r)return {values:result,missing:['Rezept nicht gefunden']};
+ for(const [id,quantity] of r.ingredients){
+  const profile=nutritionProfiles[id],product=products[id];
+  if(!profile||!product){missing.push(id);continue;}
+  const factor=quantity/3*portions*(product.unit==='Stk.'?1:0.01);
+  for(let i=0;i<nutrientKeys.length;i++)result[nutrientKeys[i]]+=profile[i]*factor;
+ }
+ return {values:nutrientRound(result),missing};
+}
+function nutritionDate(day){return iso(dateFor(day))}
+function personLabel(i){return (String(state.config.memberNames||'').split(',')[i]||'').trim().slice(0,32)||'Person '+(i+1)}
+function nutritionEntry(date,person,type){return state.nutritionLogs.find(x=>x.date===date&&x.person===person&&x.type===type)}
+function loggedTotals(date,person=null){const total=zeroNutrients();for(const x of state.nutritionLogs){if(x.date===date&&(person===null||x.person===person))nutrientAdd(total,x.nutrients);}return nutrientRound(total)}
+function logMeal(day,person,type,portions){
+ if(!Number.isInteger(day)||day<0||day>=7||!Number.isInteger(person)||person<0||person>=state.config.people||!orderTypes.includes(type)||![0.5,1,1.5,2].includes(portions))return false;
+ const r=recipeById[state.plan[day][type]],value=recipeNutrients(r,portions);
+ if(value.missing.length){toast('Für dieses Rezept fehlen Nährwertangaben');return false}
+ const date=nutritionDate(day);
+ state.nutritionLogs=state.nutritionLogs.filter(x=>!(x.date===date&&x.person===person&&x.type===type));
+ state.nutritionLogs.push({date,person,type,recipeId:r.id,recipeName:r.name,portions,nutrients:value.values});
+ if(state.nutritionLogs.length>1000)state.nutritionLogs=state.nutritionLogs.slice(-1000);
+ save();render();toast('Mahlzeit für '+personLabel(person)+' eingetragen ✓');return true;
+}
+function removeMeal(day,person,type){
+ const date=nutritionDate(day);
+ state.nutritionLogs=state.nutritionLogs.filter(x=>!(x.date===date&&x.person===person&&x.type===type));
+ save();render();toast('Eintrag entfernt');
+}
+function nutrientCards(totals){
+ const names=[['kcal','Kalorien','kcal'],['protein','Eiweiss','g'],['carbs','Kohlenhydrate','g'],['fat','Fett','g'],['fiber','Ballaststoffe','g']];
+ return '<div class="nutrition-grid">'+names.map(([key,name,unit])=>'<div class="stat"><div><span>'+name+'</span><strong>'+Number(totals[key]).toLocaleString('de-CH',{maximumFractionDigits:1})+' '+unit+'</strong></div></div>').join('')+'</div>';
+}
+function nutritionPage(){
+ state.nutritionPerson=Math.min(Math.max(0,state.nutritionPerson),state.config.people-1);
+ state.nutritionDay=Math.max(0,Math.min(6,state.nutritionDay));
+ const day=state.nutritionDay,date=nutritionDate(day),person=state.nutritionPerson;
+ const current=loggedTotals(date,person),family=loggedTotals(date);
+ const members=Array.from({length:state.config.people},(_,i)=>'<option value="'+i+'" '+(i===person?'selected':'')+'>'+esc(personLabel(i))+'</option>').join('');
+ const times=days.map((name,i)=>'<button type="button" class="tab '+(i===day?'active':'')+'" data-action="nutrition-day" data-day="'+i+'">'+name.slice(0,2)+' · '+dayString(i)+'</button>').join('');
+ const meals=orderTypes.map(type=>{
+  const r=recipeById[state.plan[day][type]],n=recipeNutrients(r),entry=nutritionEntry(date,person,type);
+  const amount=entry?entry.nutrients:n.values;
+  const title=entry?entry.recipeName:r.name;
+  const missing=n.missing.length>0;
+  const controls=[0.5,1,1.5,2].map(x=>'<button class="btn small '+(entry&&entry.portions===x?'primary':'')+'" type="button" data-action="log-meal" data-day="'+day+'" data-person="'+person+'" data-type="'+type+'" data-portions="'+x+'" '+(missing?'disabled':'')+'>'+x.toLocaleString('de-CH',{maximumFractionDigits:1})+'×</button>').join('');
+  return '<section class="form-card" style="margin-bottom:12px"><div class="day-top"><strong>'+esc(typeLabels[type])+'</strong><span class="today-chip">'+(entry?'✓ Gegessen':'Noch nicht erfasst')+'</span></div><h2>'+r.emoji+' '+esc(title)+'</h2><p style="margin:9px 0 14px">'+Math.round(amount.kcal)+' kcal · '+amount.protein.toFixed(1)+' g Eiweiss · '+amount.carbs.toFixed(1)+' g Kohlenhydrate · '+amount.fat.toFixed(1)+' g Fett · '+amount.fiber.toFixed(1)+' g Ballaststoffe</p>'+
+   '<div style="font-size:12px;color:#718877;margin-bottom:7px">Wie viele Portionen hast du gegessen? (1× = eine geplante Portion)</div><div class="settings-bottom" style="margin:8px 0;gap:6px">'+controls+(entry?'<button class="btn small" type="button" data-action="remove-meal" data-day="'+day+'" data-person="'+person+'" data-type="'+type+'">↻ Entfernen</button>':'')+'</div>'+
+   (entry&&entry.recipeId!==r.id?'<p class="smallprint">Dieser Eintrag gehört zu einem früheren Wochenplan. Die ursprünglich erfassten Nährwerte bleiben erhalten.</p>':'')+(missing?'<p class="smallprint">Für einzelne Zutaten fehlen Nährwertdaten. Erfassen vorübergehend nicht möglich.</p>':'')+'</section>';
+ }).join('');
+ const recorded=orderTypes.filter(type=>nutritionEntry(date,person,type)).length;
+ return '<div class="page-intro"><div><div class="kicker">DEIN ESSEN IM BLICK</div><h1>Ernährungstagebuch 🍽️</h1><p>Nur tatsächlich gegessene Mahlzeiten werden mitgezählt.</p></div></div>'+
+  '<section class="form-card"><div class="field" style="max-width:330px"><label for="nutrition-person">Für wen möchtest du die Nährwerte sehen?</label><select id="nutrition-person" data-action="nutrition-person">'+members+'</select></div><div class="tabs" style="overflow-x:auto;flex-wrap:nowrap;padding:4px 0">'+times+'</div></section>'+
+  '<div class="section-heading"><h2>Tagesbilanz · '+esc(personLabel(person))+'</h2><span class="subheading">'+recorded+' von 3 Mahlzeiten erfasst</span></div>'+
+  nutrientCards(current)+'<div class="section-heading"><h2>Mahlzeiten am '+esc(dayString(day))+'</h2></div>'+meals+
+  '<section class="form-card" style="margin-top:16px"><h2>👨‍👩‍👧 Zusammen als Familie</h2><p>Summe aller eingetragenen Personen für diesen Tag, nicht pro Person.</p>'+nutrientCards(family)+'</section>'+
+  '<div class="notice info">ℹ️ <div><strong>Alle Nährwerte sind Schätzungen.</strong> Die Werte werden aus Zutatenmengen und einem lokalen Richtwertkatalog berechnet (Rohgewichte und Stück-Schätzungen). Tatsächliche Portionen, Zubereitungsverluste, Marken und andere gegessene Lebensmittel können stark abweichen. Nur eingetragene Mahlzeiten zählen. Keine medizinische Auswertung.</div></div>';
+}
+
 function booksPage(){
  const books=[...new Set(state.userRecipes.map(r=>r.source||'Mein Kochbuch'))].sort((a,b)=>a.localeCompare(b,'de'));
  const cards=books.map(book=>{
