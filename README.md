@@ -1,8 +1,23 @@
-# Family Food Planner – Migros (Version 1.1)
+# Family Food Planner – Migros (Version 1.2)
 
 Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
 **Online:** https://mherfurthhtm.github.io/family-food-planner/
+
+## Ernährungstagebuch und Nährwerte
+
+Unter **Tagebuch** (iPhone) oder **Ernährungstagebuch** (Desktop) kannst du pro Tag und Person die tatsächlich gegessenen Mahlzeiten eintragen.
+
+1. Den gewünschten Tag der geplanten Woche auswählen.
+2. Eine Person auswählen. Unter **Einstellungen → Namen für Ernährungstagebuch** lassen sich optionale Namen (kommagetrennt) eintragen.
+3. Pro Mahlzeit ½, 1, 1½ oder 2 Portionen als **gegessen** erfassen. Ein erneuter Klick passt die Portion an.
+4. Die App zeigt **Kilokalorien, Eiweiss, Kohlenhydrate, Fett und Ballaststoffe** für die Person sowie eine separate Tagessumme der Familie.
+5. Einträge lassen sich wieder entfernen und werden lokal gespeichert. Nach einer neuen Wochenplanung bleiben bereits erfasste Werte für den jeweiligen Kalendertag erhalten.
+6. Unter Einstellungen können die lokalen Daten exportiert werden; dabei werden auch die Ernährungseinträge mitgesichert.
+
+**Wichtige Grenzen:** Alle Nährwerte beruhen auf einem mitgelieferten, bewusst vereinfachten Richtwertkatalog je 100 g/100 ml oder Stück, **nicht** auf aktuellen, verifizierten Migros-Nährwertetiketten. Die Rechnung geht von Rezeptrohmengen, vollständiger Verteilung auf drei Portionen sowie typischen Stückgewichten aus. Kochverluste, tatsächliche Zutatenmarken, zusätzliche Speisen und Getränken sowie individuelle Zubereitung können zu deutlich anderen Nährwerten führen. Nur aktiv eingetragene Mahlzeiten zählen; die App dient als Orientierung, nicht für klinische Ernährungsplanung.
+
+Eine kostenlose, offizielle Quelle zur späteren Qualitätsverbesserung ist die [Schweizer Nährwertdatenbank des BLV](https://www.naehrwertdaten.ch/de/). Deren Daten dürfen gemäss BLV unter Quellenangabe auch für Ernährungsapps genutzt werden. Die vorliegenden Näherungswerte sind noch keine systematische BLV-Übernahme.
 
 ## Wochenplanung
 
@@ -49,6 +64,6 @@ Die App kann Kochbücher **noch nicht selbst aus PDFs oder Fotos auslesen**. Fot
 - Repository: https://github.com/mherfurthHTM/family-food-planner
 - GitHub → Settings → Pages → Deploy from a branch → main / (root)
 - Die Anwendung benötigt **keinen kostenpflichtigen Dienst, keine Datenbank und keine KI-API**.
-- Lokale Browser-Daten sind nicht zwischen Geräten synchronisiert. Gelöschte Website-Daten löschen Pläne und gespeicherte Kochbuchrezepte; deshalb regelmässig exportieren.
+- Lokale Browser-Daten sind nicht zwischen Geräten synchronisiert. Gelöschte Website-Daten löschen Pläne, Ernährungstagebuch und gespeicherte Kochbuchrezepte; deshalb regelmässig exportieren.
 - **Migros-Preise sind nur hinterlegte Schätzwerte und nicht live**. Budgetzusagen, aktuelle Angebote, tatsächliche Sortimente und automatische Migros-Bestellungen sind derzeit nicht möglich.
 - Die App kombiniert die hinterlegten Rezepte algorithmisch. Eine fortlaufende KI, die neue Gerichte aus ganzen PDF-Kochbüchern generiert, ist bei dieser rein statischen Gratisversion **nicht** enthalten.
