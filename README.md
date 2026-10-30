@@ -1,39 +1,54 @@
-# Family Food Planner – Migros (Version 1.0)
+# Family Food Planner – Migros (Version 1.1)
 
-Kostenlose, mobilfreundliche Web-App für die Wochenplanung: 7 Tage × Frühstück, Mittagessen und Abendessen, Rezepte, Budget und Migros-Einkaufsliste.
+Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
-## App kostenlos mit GitHub Pages veröffentlichen
+**Online:** https://mherfurthhtm.github.io/family-food-planner/
 
-1. Öffne [Settings → Pages](https://github.com/mherfurthHTM/family-food-planner/settings/pages).
-2. Unter **Build and deployment → Source** wähle **Deploy from a branch**.
-3. Als Branch wähle **main**, als Ordner **/(root)** und klicke **Save**.
-4. Die App ist danach unter https://mherfurthhtm.github.io/family-food-planner/ erreichbar, sobald GitHub Pages die Veröffentlichung abgeschlossen hat.
-5. Auf dem iPhone in Safari die Website öffnen, dann **Teilen → Zum Home-Bildschirm**.
+## Wochenplanung
 
-## Funktionen
+- Auf der Startseite lassen sich **Budget (CHF 0.05 bis 1'000'000)** und **Personen (1 bis 100)** direkt anpassen.
+- Klick auf **Neu berechnen** erstellt den Wochenplan für die gewählte Anzahl Personen und das Budget neu.
+- Unter **Einstellungen** sind diese und andere Optionen ebenfalls verfügbar.
+- Keine spezielle Diät ist vorgegeben: Zwiebeln, Rahm, Lachs und Eiweisspräferenz sind standardmässig nicht ausgeschlossen. Diese Einstellungen sind optional.
+- Eine Budgetüberschreitung wird klar angezeigt; die Software kann bei unrealistisch tiefen Budgets keine Einhaltung garantieren.
 
-- Automatische Menüplanung für 7 Tage und 3 Mahlzeiten pro Tag
-- Anzahl Personen und Wochenbudget frei anpassen (Standard: 3 Personen, CHF 180)
-- Rezepte mit Zutaten und Kochanleitungen
-- Wiederverwendung gemeinsamer Zutaten und Berechnung ganzer Einkaufspackungen
-- Einkaufsliste nach Kategorien; abhaken, ergänzen, kopieren und drucken
-- Gerichte austauschen und Wochenkosten neu berechnen
-- Einstellungen für Zwiebeln, Rahm, Lachs, proteinreiche Mahlzeiten und Grundvorrat
-- Lokale Speicherung im Browser, ohne Benutzerkonto
-- Installierbare Web-App mit Offline-Unterstützung nach dem ersten Laden
+## Meine Kochbücher
 
-## Projektdateien
+Unter **Bücher** (mobil) bzw. **Meine Kochbücher** (Desktop):
 
-- `index.html`: **Vollständige Anwendung** samt JavaScript und CSS (keine externen Abhängigkeiten)
-- `manifest.webmanifest`, `icon.svg`: App-Icon und Installation zum Home-Bildschirm
-- `sw.js`: Offline-Cache für statische Dateien
-- `.nojekyll`: für GitHub Pages
-- `README.md`: diese Anleitung
+1. Rezeptdateien als **JSON** importieren, auch aus mehreren Kochbüchern.
+2. Die Rezepte werden **ausschliesslich lokal auf dem verwendeten Gerät** gespeichert.
+3. Importierte Rezepte können bei der Menüplanung priorisiert und einzeln entfernt werden.
+4. Über **Meine Kochbücher sichern** eine Sicherung als JSON herunterladen; später wieder importieren.
+5. Mit **Beispiel-Datei** eine korrekt formatierte Importdatei herunterladen.
 
-## Kosten und wichtige Einschränkungen
+Die App kann Kochbücher **noch nicht selbst aus PDFs oder Fotos auslesen**. Fotos/PDFs können zunächst im Chat in eine strukturierte Rezeptdatei umgewandelt und anschliessend in die App importiert werden. Das Buchmaterial gehört nicht in das **öffentliche** GitHub-Repository. Nur Rezepte mit Zutaten aus dem lokalen Migros-Richtpreis-Katalog können importiert werden; bisherige Produkt-IDs sind beispielsweise `rice`, `chicken`, `carrot`, `eggs`, `oil`.
 
-**Der Betrieb auf GitHub Pages ist für ein öffentliches Repository im kostenlosen GitHub-Free-Tarif gratis, innerhalb der GitHub-Nutzungsgrenzen.** Es braucht keine kostenpflichtige API, keinen Server und keine Datenbank.
+### JSON-Beispiel
 
-**Achtung: Preise und Produkte sind nur Schätzwerte, keine Live-Migros-Daten.** Die App garantiert keinen tatsächlichen Einkauf für den geplanten Betrag und prüft keine Filialverfügbarkeit oder Aktionen. Es wird nichts bei Migros bestellt.
+```json
+{
+  "book": "Familienrezepte",
+  "recipes": [
+    {
+      "name": "Gemüsereis mit Ei",
+      "type": "lunch",
+      "servings": 3,
+      "minutes": 25,
+      "ingredients": [["rice", 330], ["eggs", 5], ["carrot", 320], ["peas", 240]],
+      "steps": ["Reis kochen.", "Gemüse garen.", "Eier zugeben und mit Reis vermischen."]
+    }
+  ]
+}
+```
 
-Alle Einstellungen, Pläne und Häkchen werden nur im Browser auf deinem Gerät gespeichert. Es gibt keine automatische Synchronisierung. Wenn Browserdaten gelöscht werden, können die Daten verloren gehen.
+`type`: `breakfast`, `lunch` oder `dinner`. Bei Zutaten `[Produkt-ID, Menge]` und die Produkteinheit aus dem Katalog (g, ml oder Stk.) benutzen. Die `servings` bestimmen die Ausgangsportionen, die App passt die Mengen automatisch an die eingestellte Personenzahl an. Jede Rezeptdatei kann mehrere Rezepte enthalten und optional `source` pro Rezept setzen.
+
+## GitHub Pages / Kosten
+
+- Repository: https://github.com/mherfurthHTM/family-food-planner
+- GitHub → Settings → Pages → Deploy from a branch → main / (root)
+- Die Anwendung benötigt **keinen kostenpflichtigen Dienst, keine Datenbank und keine KI-API**.
+- Lokale Browser-Daten sind nicht zwischen Geräten synchronisiert. Gelöschte Website-Daten löschen Pläne und gespeicherte Kochbuchrezepte; deshalb regelmässig exportieren.
+- **Migros-Preise sind nur hinterlegte Schätzwerte und nicht live**. Budgetzusagen, aktuelle Angebote, tatsächliche Sortimente und automatische Migros-Bestellungen sind derzeit nicht möglich.
+- Die App kombiniert die hinterlegten Rezepte algorithmisch. Eine fortlaufende KI, die neue Gerichte aus ganzen PDF-Kochbüchern generiert, ist bei dieser rein statischen Gratisversion **nicht** enthalten.
