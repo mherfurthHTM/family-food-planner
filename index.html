@@ -409,6 +409,33 @@ function render(){syncNav();main.innerHTML=state.view==='plan'?planPage():state.
 function textList(){let b=basket(state.plan);let str=`FAMILY FOOD PLANNER – MIGROS\n${dateHeader()} · ${state.config.people} Personen · Budget ${money(state.config.budget)}\nGeschätzter Einkauf: ${money(b.total)}\n\n`;for(let cat of categories){let rows=b.rows.filter(x=>x.category===cat);if(!rows.length)continue;str+=`${cat.toUpperCase()}\n`;for(let r of rows)str+=`${state.checked[r.key]?'[x]':'[ ]'} ${r.name}: ${r.extra?'1 Stk.':`${r.packs} × ${formatAmount(r.pack,r.unit)}`} – ${money(r.cost)}\n`;str+='\n'}return str+'Preise sind Richtwerte; aktuelle Preise und Filialsortiment prüfen.'}
 function toast(message){let t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove('show'),3000)}
 async function copyList(){let text=textList();try{await navigator.clipboard.writeText(text);toast('Einkaufsliste kopiert ✓')}catch{let el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();try{document.execCommand('copy');toast('Einkaufsliste kopiert ✓')}catch{toast('Kopieren hier leider nicht möglich')}el.remove()}}
+
+function productChoiceDialog(id){
+ const base=products[id];if(!base)return;
+ const custom=state.productChoices[id],p=pricedProduct(id);
+ const chosen=Boolean(custom&&p.priceOrigin==='manual');
+ const hint=chosen?'Manuell erfasster Artikel · zuletzt bearbeitet '+esc(String(custom.updatedAt||'')):'Noch kein genauer Artikel zugeordnet · die aktuelle Einkaufsliste nutzt einen Richtpreis';
+ modalRoot.innerHTML='<div class="modal-backdrop" data-action="close-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="product-choice-title">'+
+ '<div class="modal-head"><button class="close-btn" aria-label="Schliessen" data-action="close">×</button><div class="kicker">MIGROS FILIAL- ODER ONLINE-SORTIMENT</div><h2 id="product-choice-title">'+esc(base.name)+'</h2><p>'+hint+'</p></div>'+
+ '<div class="modal-body"><p>Suche den gewünschten Artikel im <a href="https://www.migros.ch/de/category/home" target="_blank" rel="noopener noreferrer">gesamten Migros-Sortiment</a> (alle dort gelisteten Marken). Stelle auf Migros.ch deine Filiale bzw. deinen Einkaufsmodus ein und öffne den passenden Artikel. Übertrage anschliessend die Produktadresse, Packungsmenge und den angezeigten Preis.</p>'+
+ '<form id="product-choice-form"><input type="hidden" name="productId" value="'+esc(id)+'">'+
+ '<div class="field" style="margin:10px 0"><label for="chosen-name">Exakter Produktname (inkl. Marke)</label><input id="chosen-name" name="name" maxlength="150" required placeholder="z. B. Marke und Artikelname" value="'+esc(chosen?p.name:'')+'"></div>'+
+ '<div class="field" style="margin:10px 0"><label for="chosen-url">Link zum Migros-Produkt</label><input id="chosen-url" name="url" type="url" required placeholder="https://www.migros.ch/de/product/..." value="'+esc(chosen?p.productUrl:'')+'"></div>'+
+ '<div class="form-grid" style="grid-template-columns:repeat(2,minmax(0,1fr))"><div class="field"><label for="chosen-pack">Inhalt je Packung ('+esc(base.unit)+')</label><input id="chosen-pack" name="pack" type="number" step="any" min="0.01" max="100000" required value="'+(chosen?p.pack:base.pack)+'"></div>'+
+ '<div class="field"><label for="chosen-price">Preis je Packung (CHF)</label><input id="chosen-price" name="price" type="number" step="0.01" min="0" max="100000" required value="'+(chosen?p.price.toFixed(2):base.price.toFixed(2))+'"></div></div>'+
+ '<p class="smallprint" style="margin-top:15px">Eine Zuordnung bezieht sich auf die Zutat «'+esc(base.name)+'». Die Einheit '+esc(base.unit)+' bleibt erhalten, damit die Rezeptmengen korrekt berechnet werden. Bei Abweichungen im Filialsortiment, Aktionen oder Gewichtsware musst du den Preis selbst aktualisieren.</p>'+
+ '<div class="modal-actions"><button class="btn primary" type="submit">✓ Produkt und Preis übernehmen</button>'+(chosen?'<button class="btn" type="button" data-action="clear-product-choice" data-id="'+esc(id)+'">Richtpreis wiederherstellen</button>':'')+'<button class="btn" type="button" data-action="close">Schliessen</button></div></form></div></div></div>';
+}
+function saveProductChoice(form){
+ const id=String(form.get('productId')||''),name=String(form.get('name')||'').trim(),url=String(form.get('url')||'').trim();
+ const pack=Number(form.get('pack')),price=Number(form.get('price'));
+ if(!products[id]||!name||name.length>150||!isMigrosLink(url)||!Number.isFinite(pack)||pack<0.01||pack>100000||!Number.isFinite(price)||price<0||price>100000){
+  toast('Bitte Namen, gültigen Migros-Produktlink, Packungsinhalt und Preis eintragen.');return false;
+ }
+ state.productChoices[id]={name,url,pack,price:+price.toFixed(2),updatedAt:new Date().toLocaleDateString('de-CH')};
+ save();closeModal();render();toast('Migros-Artikel hinterlegt und Einkaufskosten neu berechnet ✓');return true;
+}
+
 function bookRecipeDialog(id){
  const r=recipeById[id];if(!r)return;
  const n=recipeNutrients(r).values;
