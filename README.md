@@ -1,8 +1,28 @@
-# Family Food Planner – Migros (Version 1.3)
+# Family Food Planner – Migros (Version 1.4)
 
 Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
 **Online:** https://mherfurthhtm.github.io/family-food-planner/
+
+## Das gesamte Migros-Sortiment statt nur Eigenmarken (neu in 1.4)
+
+Ziel ist, dass jede Einkaufsposition einen **konkret ausgewählten Artikel aus dem ganzen Migros-Sortiment** referenzieren kann, einschliesslich Fremdmarken, M-Budget, M-Classic, Packungsvarianten und regionaler Produkte.
+
+### Bereits eingebaut: manuelle Sortimentszuordnung
+
+1. **Einkaufsliste → Artikel wählen:** Zu einer bisher generischen Rezeptzutat (z. B. «Milch») kannst du einen beliebigen konkreten Artikel auf [Migros.ch](https://www.migros.ch/de/category/home) auswählen. Gib die exakte Bezeichnung, den direkten Produktlink, den Packungsinhalt in der bestehenden Zutaten-Einheit und den aktuellen angezeigten Preis ein. Anschliessend benutzt die Mengen-/Budgetrechnung die gewählte Packung und den selbst erfassten Preis.
+2. Bei einer Zuordnung wird in der Liste **«Manuell erfasster Preis»** statt «Richtpreis» angezeigt.
+3. Über **«Richtpreis wiederherstellen»** kannst du die Zuordnung entfernen.
+4. Unter **Einkaufsliste → Etwas hinzufügen** kannst du jeden weiteren Artikel aus dem Sortiment inklusive Fremdmarken und Nicht-Lebensmitteln erfassen, auch mehrere Packungen mit einem Gesamtpreis. Ein Link zum Produkt ist optional.
+5. Zuordnungen und weitere Artikel werden lokal auf deinem Gerät gespeichert und beim Datenexport mitgesichert. Die Produktwahl ist für alle Rezepte mit der entsprechenden Grundzutat gültig.
+
+### Noch nicht gelöst: automatischer vollständiger Livekatalog
+
+Migros gewährt Drittanwendungen laut eigener Auskunft keinen offiziellen öffentlichen Zugriff auf seine Produktdaten-API (siehe [Migipedia](https://migipedia.migros.ch/de/forum/migipedia/is-there-an-api-for-migros-product-data)). Private Drittanbieterprojekte arbeiten mit **inoffiziellen Migros-Endpunkten**, die sich jederzeit ändern können; zudem ist der Zugriff einer reinen GitHub-Pages-Web-App über den Browser (CORS/Token) nicht zuverlässig verifiziert. Die Anwendung lädt **nicht** automatisch das ganze Migros-Sortiment und aktualisiert **keine** Preise in Echtzeit. Darauf wird ausdrücklich hingewiesen.
+
+Migros unterscheidet [Filialsortiment und Online-Sortiment](https://support.migros.ch/hc/de/articles/32900760025106-Ich-will-etwas-bestimmtes-auf-die-Einkaufsliste-setzen-und-finde-es-nicht); ein vollständiger Artikelkatalog muss künftig jeweils die gewünschte Filiale und regionale Aktionen berücksichtigen. Die jetzige manuelle Zuordnung schafft die technische Grundlage und verursacht keine zusätzlichen Kosten. Der nächste Ausbau erfordert zuerst eine zulässige, zuverlässige Datenquelle mit belegbarer Sortimentabdeckung.
+
+**Nährwerte:** Bei manuell zugeordneten Produkten bleiben die bisherigen groben Nährwerte der Rezept-Grundzutat bestehen. Sie werden nicht aus der ausgewählten Migros-Produktetikette eingelesen.
 
 ## Zwei kostenlose Kochbücher (neu in 1.3)
 
