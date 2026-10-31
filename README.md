@@ -14,7 +14,7 @@ Mit GitHub Actions (auf dem öffentlichen Repository kostenlos) ist ein experime
 - Manuell selbst gewählte Produkte mit Preisen haben weiterhin Vorrang.
 - Ohne Antwort, bei API-Änderung, Ausfall, falschem Namen oder fehlenden Daten **bleibt die App bei den bisherigen Preisangaben**. Fehler führen nicht dazu, dass erfundene oder leere Preise erscheinen.
 - Die automatischen Preise sind **Online-Webpreise, keine für die Migros MM Herzogenbuchsee bestätigten Filialpreise**. Auch die Bestände werden nicht geprüft.
-- **Status:** Der Workflow-Code ist eingerichtet; die erfolgreiche Ausführung und der reale Preisabruf sind noch nicht bestätigt. GitHub → Actions → „Migros-Preise prüfen (inoffiziell)“ zeigt den Lauf und eventuelle Fehlermeldungen.
+- **Status:** Der erste automatische GitHub-Actions-Lauf am 31.10.2026 war erfolgreich. Sechs Onlinepreise wurden in `migros-prices.json` mit Zeitstempel aktualisiert. GitHub → Actions → „Migros-Preise prüfen (inoffiziell)“ zeigt die Durchläufe und eventuelle spätere Fehlermeldungen.
 - Alle anderen Produkte bleiben vorerst bei Web-Richtpreisen; für eine breitere automatische Abdeckung müssen konkrete Artikel-IDs und Packungsgrössen sorgfältig zugeordnet werden. Kein automatischer Komplettkatalog.
 
 Migros erklärt im [eigenen Forum](https://migipedia.migros.ch/de/forum/migipedia/is-there-an-api-for-migros-product-data), dass sie keine offizielle öffentliche Produktdaten-API anbietet. Inoffizielle Endpunkte können sich ohne Ankündigung ändern und unterliegen Migros' Nutzungsbedingungen.
