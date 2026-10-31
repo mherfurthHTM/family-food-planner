@@ -304,6 +304,43 @@
       "nameContains": "broccoli",
       "pack": 1000,
       "unit": "g"
+    },
+    "tortilla": {
+      "migrosId": "158560000000",
+      "nameContains": "weizen tortillas",
+      "pack": 8,
+      "unit": "Stk.",
+      "physicalQuantity": "320g"
+    },
+    "lentils": {
+      "migrosId": "105005300000",
+      "nameContains": "linsen",
+      "pack": 500,
+      "unit": "g"
+    },
+    "tinnedtomato": {
+      "migrosId": "153232100000",
+      "nameContains": "tomaten",
+      "pack": 400,
+      "unit": "g"
+    },
+    "corn": {
+      "migrosId": "153933200000",
+      "nameContains": "maiskörner",
+      "pack": 285,
+      "unit": "g"
+    },
+    "tuna": {
+      "migrosId": "155900200000",
+      "nameContains": "thon",
+      "pack": 150,
+      "unit": "g"
+    },
+    "tomato": {
+      "migrosId": "271422202400",
+      "nameContains": "rispentomaten",
+      "pack": 500,
+      "unit": "g"
     }
   }
 }
