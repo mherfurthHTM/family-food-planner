@@ -37,7 +37,7 @@
         <button class="nav-item" data-view="settings"><span class="nav-symbol">⚙</span> Einstellungen</button>
       </nav>
       <div class="side-note"><span>✦</span><p>Gut geplant.<br><strong>Besser gegessen.</strong></p><small>Weniger Lebensmittel verschwenden. Mehr aus deinem Budget machen.</small></div>
-      <div class="side-bottom"><span class="online-dot"></span> Migros · Version 1.7</div>
+      <div class="side-bottom"><span class="online-dot"></span> Migros · Version 1.8</div>
     </aside>
     <div class="main-wrap">
       <header class="topbar"><div class="topbar-start"><span class="tiny-logo">✳</span><span class="eyebrow">FAMILY FOOD PLANNER</span></div><span id="week-range" class="week-range"></span></header>
@@ -79,7 +79,32 @@ const products = Object.fromEntries(P.map(([id,name,pack,unit,price,category])=>
  const r=MIGROS_PRICE_REFERENCES[id];
  return [id,{id,name:r?.name||name,pack:r?.pack??pack,unit,price:r?.price??price,category,sourceUrl:r?.url||'',priceOrigin:r?'migros-web':'estimate'}];
 }));
-const pantryItems=new Set(['oil','salt','pepperground','paprika','cinnamon','broth','herbs','flour']);
+// Automatisch aktualisierte Webpreise: nur aus erfolgreich geprüftem JSON laden.
+ let autoPrices=Object.create(null);
+ function catalogProduct(base){
+  const current=autoPrices[base.id];
+  if(!current)return {...base,priceOrigin:base.priceOrigin||'estimate'};
+  return {...base,price:current.price,sourceUrl:current.url,priceOrigin:'auto',updatedAt:current.checkedAt};
+ }
+ async function loadAutomaticMigrosPrices(){
+  try{
+   const response=await fetch('./migros-prices.json',{cache:'no-store'});
+   if(!response.ok)return;
+   const data=await response.json();
+   if(data?.schemaVersion!==1||data.storePricesVerified!==false||!data.items||typeof data.items!=='object')return;
+   const updated=Object.create(null);
+   for(const [id,item] of Object.entries(data.items)){
+    if(!products[id]||!item||item.source!=='migros-unofficial')continue;
+    const price=Number(item.price),stamp=Date.parse(item.checkedAt||'');
+    if(!Number.isFinite(price)||price<=0||price>=1000||!Number.isFinite(stamp)||stamp>Date.now()+60000||Date.now()-stamp>14*86400000)continue;
+    if(!isMigrosLink(item.url)||!/^[0-9]{12,}$/.test(String(item.migrosId||'')))continue;
+    updated[id]={price,url:item.url,checkedAt:item.checkedAt};
+   }
+   autoPrices=updated;
+   render();
+  }catch(error){console.warn('Migros-Preisabgleich nicht verfügbar, Richtwerte bleiben aktiv');}
+ }
+ const pantryItems=new Set(['oil','salt','pepperground','paprika','cinnamon','broth','herbs','flour']);
 const R=[];
 function recipe(id,type,name,emoji,min,ingredients,steps,tags=[],protein=false){ R.push({id,type,name,emoji,min,ingredients,steps,tags,protein}); }
 // All ingredient amounts are totals for 3 people, before scaling to household size.
@@ -221,9 +246,9 @@ function quantities(plan){let result={};if(!plan)return result;for(let day of pl
 function pricedProduct(id){
  const base=products[id];if(!base)return null;
  const custom=state.productChoices[id];
- if(!custom||typeof custom!=='object')return {...base,priceOrigin:base.priceOrigin||'estimate'};
+ if(!custom||typeof custom!=='object')return catalogProduct(base);
  const name=String(custom.name||'').trim(),pack=Number(custom.pack),price=Number(custom.price),url=String(custom.url||'');
- if(!name||name.length>150||!Number.isFinite(pack)||pack<=0||pack>100000||!Number.isFinite(price)||price<0||price>100000||!isMigrosLink(url))return {...base,priceOrigin:base.priceOrigin||'estimate'};
+ if(!name||name.length>150||!Number.isFinite(pack)||pack<=0||pack>100000||!Number.isFinite(price)||price<0||price>100000||!isMigrosLink(url))return catalogProduct(base);
  return {...base,name,pack,price:+price.toFixed(2),productUrl:url,priceOrigin:'manual',updatedAt:custom.updatedAt};
 }
 function isMigrosLink(link){
@@ -306,7 +331,7 @@ function formatAmount(q,unit){let v=Math.round(q*10)/10;return `${Number.isInteg
 function listPage(){let b=basket(state.plan),done=b.rows.filter(p=>state.checked[p.key]).length,filter=state.filter;let shown=b.rows.filter(r=>filter==='Alle'||r.category===filter);let cats=[...new Set(shown.map(r=>r.category))];return `<div class="page-intro"><div><div class="kicker">ALLES AUF EINER LISTE</div><h1>Dein Migros-Einkauf 🛒</h1><p>${done} von ${b.rows.length} Positionen abgehakt · Packungsgrössen berücksichtigt · Fremdmarken möglich</p><p style="margin-top:9px"><strong>📍 Einkaufsfiliale: Migros MM Herzogenbuchsee</strong> · Bernstrasse 33, 3360 Herzogenbuchsee</p></div><button class="btn" data-action="copy">⧉ Liste kopieren</button></div>
  <div class="stat-grid"><div class="stat"><div class="stat-icon">💳</div><div><span>Gesamt geschätzt</span><strong>${money(b.total)}</strong></div></div><div class="stat"><div class="stat-icon">✅</div><div><span>Bereits im Wagen</span><strong>${done} / ${b.rows.length}</strong></div></div><div class="stat"><div class="stat-icon">💚</div><div><span>Budgetrest</span><strong class="${b.total>state.config.budget?'budget-over':'budget-ok'}">${money(state.config.budget-b.total)}</strong></div></div></div>
  <div class="tabs">${['Alle',...categories.filter(c=>b.rows.some(r=>r.category===c))].map(c=>`<button class="tab ${filter===c?'active':''}" data-action="filter" data-filter="${esc(c)}">${esc(c)}</button>`).join('')}</div>
- <div class="shopping-panel"><div>${cats.map(c=>`<section class="category"><h3>${esc(c)}<small>${shown.filter(r=>r.category===c).length} Produkte</small></h3>${shown.filter(r=>r.category===c).map(p=>`<label class="product-row ${state.checked[p.key]?'checked':''}"><input type="checkbox" data-action="check" data-key="${esc(p.key)}" ${state.checked[p.key]?'checked':''}><span><span class="product-name">${esc(p.name)}</span><span class="product-meta">${p.extra?'Manuell · '+p.packs+' Packung(en)':`${p.packs} × ${formatAmount(p.pack,p.unit)} · Bedarf ${formatAmount(p.amount,p.unit)}`}</span></span><span class="product-price">${money(p.cost)}${p.extra?`<button class="remove-btn" type="button" data-action="remove-extra" data-id="${esc(p.id)}">Entfernen</button>`:`<small>${p.priceOrigin==='manual'?'Manuell erfasster Preis · nicht live geprüft':p.priceOrigin==='migros-web'?'Migros-Onlinepreis · Filiale ungeprüft':'Richtpreis · Filialpreis unbestätigt'}</small>${p.priceOrigin==='migros-web'&&p.sourceUrl?`<a class="remove-btn" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Preisquelle</a>`:''}<button class="remove-btn" type="button" data-action="assign-product" data-id="${esc(p.id)}">Artikel wählen</button>`}</span></label>`).join('')}</section>`).join('')||`<div class="empty">Keine Produkte in dieser Kategorie.</div>`}
+ <div class="shopping-panel"><div>${cats.map(c=>`<section class="category"><h3>${esc(c)}<small>${shown.filter(r=>r.category===c).length} Produkte</small></h3>${shown.filter(r=>r.category===c).map(p=>`<label class="product-row ${state.checked[p.key]?'checked':''}"><input type="checkbox" data-action="check" data-key="${esc(p.key)}" ${state.checked[p.key]?'checked':''}><span><span class="product-name">${esc(p.name)}</span><span class="product-meta">${p.extra?'Manuell · '+p.packs+' Packung(en)':`${p.packs} × ${formatAmount(p.pack,p.unit)} · Bedarf ${formatAmount(p.amount,p.unit)}`}</span></span><span class="product-price">${money(p.cost)}${p.extra?`<button class="remove-btn" type="button" data-action="remove-extra" data-id="${esc(p.id)}">Entfernen</button>`:`<small>${p.priceOrigin==='manual'?'Manuell erfasster Preis · nicht live geprüft':p.priceOrigin==='auto'?'Automatisch abgefragter Migros-Webpreis · Filiale ungeprüft':p.priceOrigin==='migros-web'?'Migros-Onlinepreis · Filiale ungeprüft':'Richtpreis · Filialpreis unbestätigt'}</small>${(p.priceOrigin==='migros-web'||p.priceOrigin==='auto')&&p.sourceUrl?`<a class="remove-btn" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Preisquelle</a>`:''}<button class="remove-btn" type="button" data-action="assign-product" data-id="${esc(p.id)}">Artikel wählen</button>`}</span></label>`).join('')}</section>`).join('')||`<div class="empty">Keine Produkte in dieser Kategorie.</div>`}
  <section class="form-card"><h2>Etwas hinzufügen?</h2><p>Jeden Artikel aus dem Migros-Sortiment ergänzen – auch Fremdmarken, Getränke und Haushalt. Preise selber aus Migros.ch übernehmen.</p><form class="extra-form" id="extra-form"><label class="sr-only" for="extra-name">Artikelname</label><input id="extra-name" name="name" placeholder="Vollständiger Artikelname" maxlength="100" required><label class="sr-only" for="extra-price">Preis je Stück CHF</label><input id="extra-price" name="price" placeholder="Preis CHF" type="number" min="0" max="10000" step="0.01" required><label class="sr-only" for="extra-quantity">Anzahl Packungen</label><input id="extra-quantity" name="quantity" placeholder="Anzahl" type="number" min="1" max="999" step="1" value="1" required><label class="sr-only" for="extra-url">Migros-Produktlink</label><input id="extra-url" name="url" type="url" placeholder="https://www.migros.ch/de/product/... (optional)" style="flex-basis:100%"><button class="btn primary" type="submit">+ Artikel hinzufügen</button></form><p class="smallprint">Manuelle Auswahl, keine automatische Preis- oder Verfügbarkeitsprüfung.</p></section></div>
  <aside class="summary-card"><h3>Dein Einkaufsbudget</h3><div class="summary-line"><span>Produkte</span><strong>${b.rows.length}</strong></div><div class="summary-line"><span>Bereits abgehakt</span><strong>${done}</strong></div><div class="summary-line"><span>Verfügbares Budget</span><strong>${money(state.config.budget)}</strong></div><div class="summary-divider"></div><div class="summary-total"><span>Geschätzter Betrag</span><strong>${money(b.total)}</strong></div><div class="summary-line"><span>${b.total>state.config.budget?'Budgetüberschreitung':'Verbleibend'}</span><strong class="${b.total>state.config.budget?'budget-over':'budget-ok'}">${money(Math.abs(state.config.budget-b.total))}</strong></div><div class="summary-divider"></div><button class="btn primary wide" data-action="copy">⧉ Einkaufsliste kopieren</button><button class="btn wide" data-action="print">⇩ Drucken / PDF</button><a class="btn wide" href="https://www.migros.ch/de/category/home" rel="noopener noreferrer" target="_blank">Sortiment auf Migros.ch öffnen</a><button class="btn wide" data-action="reset-checks">↻ Häkchen zurücksetzen</button><p class="smallprint">Bei «Richtpreis» ist kein konkreter Migros-Artikel hinterlegt. Verwende «Artikel wählen», um einen Artikel aus dem gesamten Migros-Sortiment mit Packung, Link und Preis zuzuordnen. Manuell erfasste Preise sind nicht live geprüft.</p></aside></div>`}
 
@@ -433,7 +458,7 @@ function productChoiceDialog(id){
  const base=products[id];if(!base)return;
  const custom=state.productChoices[id],p=pricedProduct(id);
  const chosen=Boolean(custom&&p.priceOrigin==='manual');
- const hint=chosen?'Manuell erfasster Artikel · zuletzt bearbeitet '+esc(String(custom.updatedAt||'')):p.priceOrigin==='migros-web'?'Migros-Webpreis aus veröffentlichtem Sortiment · Preis und Verfügbarkeit in Herzogenbuchsee noch prüfen':'Noch kein genauer Artikel zugeordnet · die aktuelle Einkaufsliste nutzt einen Richtpreis';
+ const hint=chosen?'Manuell erfasster Artikel · zuletzt bearbeitet '+esc(String(custom.updatedAt||'')):(p.priceOrigin==='migros-web'||p.priceOrigin==='auto')?'Migros-Webpreis aus veröffentlichtem Sortiment · Preis und Verfügbarkeit in Herzogenbuchsee noch prüfen':'Noch kein genauer Artikel zugeordnet · die aktuelle Einkaufsliste nutzt einen Richtpreis';
  modalRoot.innerHTML='<div class="modal-backdrop" data-action="close-backdrop"><div class="modal" role="dialog" aria-modal="true" aria-labelledby="product-choice-title">'+
  '<div class="modal-head"><button class="close-btn" aria-label="Schliessen" data-action="close">×</button><div class="kicker">MIGROS MM HERZOGENBUCHSEE · FILIALSORTIMENT</div><h2 id="product-choice-title">'+esc(base.name)+'</h2><p>'+hint+'</p></div>'+
  '<div class="modal-body"><p>Suche den gewünschten Artikel im <a href="https://www.migros.ch/de/category/home" target="_blank" rel="noopener noreferrer">gesamten Migros-Sortiment</a> (alle dort gelisteten Marken). Stelle auf Migros.ch den Einkaufsmodus «In der Filiale einkaufen» und <strong>Migros MM Herzogenbuchsee, Bernstrasse 33</strong> ein. Prüfe, ob der Artikel dort verfügbar ist. Übertrage anschliessend Produktlink, Packungsinhalt und den für diese Filiale angezeigten Preis. Die App kann den Bestand und Preis nicht selbst prüfen.</p>'+
@@ -501,7 +526,7 @@ if(e.target.id==='extra-form'){e.preventDefault();let f=new FormData(e.target),n
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 window.FamilyFoodPlanner={products,recipes:R,getState:()=>JSON.parse(JSON.stringify(state)),calculate:basket,generate,recipeNutrients,loggedTotals,logMeal,removeMeal};
-render();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+render();loadAutomaticMigrosPrices();if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
 })();
 
 </script>
