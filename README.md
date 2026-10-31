@@ -1,4 +1,4 @@
-# Family Food Planner – Migros (Version 1.5)
+# Family Food Planner – Migros (Version 1.6)
 
 Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
@@ -32,16 +32,20 @@ Migros unterscheidet [Filialsortiment und Online-Sortiment](https://support.migr
 
 **Nährwerte:** Bei manuell zugeordneten Produkten bleiben die bisherigen groben Nährwerte der Rezept-Grundzutat bestehen. Sie werden nicht aus der ausgewählten Migros-Produktetikette eingelesen.
 
-## Zwei kostenlose Kochbücher (neu in 1.3)
+## Zwei Kochbücher mit je 62 Rezepten (Version 1.6)
 
-Im Bereich **Bücher** sind zwei mitgelieferte Rezeptsammlungen hinterlegt, die wir selbst für die App erstellt haben. Es handelt sich **nicht** um Kopien kommerzieller Kochbücher:
+Im Bereich **Bücher** sind nun insgesamt **124 eigenständig formulierte Kochbuchrezepte** hinterlegt:
 
-- **Deftige Küche:** 12 herzhafte Rezepte, zum Beispiel Älplermagronen, Hack-Hörnli, Chili con Carne, Rahmgeschnetzeltes, Kartoffelgratin und Rösti mit Spiegelei.
-- **Fitnessküche:** 12 Rezepte mit Schwerpunkt Eiweiss, etwa Poulet-Reis-Bowl, Skyr-Quark-Bowl, Omelett mit Hüttenkäse, Thon-Bohnen-Salat oder Lachs-Spinat-Reispfanne.
+- **Deftige Küche:** 62 herzhafte Rezepte – 12 bereits vorhandene und 50 neue Rezepte. Zusätzliche Varianten bei Rösti, Omeletts, Eintöpfen, Pasta, Reisgerichten, Aufläufen, Fleisch- und Gemüsepfannen.
+- **Fitnessküche:** 62 Rezepte mit Schwerpunkt auf eiweissbewusster Ernährung – 12 bereits vorhandene und 50 neue Rezepte. Zusätzliche Varianten bei Skyr-/Quark-Frühstücken, Poulet, Tofu, Thon, Linsen, Gemüse und Lachs.
 
-**So verwendest du die Kochbücher:** Im Wochenplan bei **Kochstil** «Gemischt», «Deftige Küche» oder «Fitnessküche» wählen und neu berechnen. Oder unter **Bücher** auf «Diese Küche für die Woche bevorzugen» tippen. In der Rezeptansicht kannst du Zutaten, Mengen, Zubereitung und geschätzte Nährwerte für eine Portion ansehen. Der Algorithmus bevorzugt die gewählte Sammlung, kann aber andere Gerichte ergänzen, um sieben abwechslungsreiche Frühstücke, Mittag- und Abendessen zu planen und das Budget möglichst einzuhalten.
+Die zwei Bücher ergänzen die **43 Standardrezepte**; die App bietet damit insgesamt **167 unterschiedliche Rezepte**. Sie enthalten Titel, Typ (Frühstück/Mittag/Abend), ungefähre Zubereitungszeit, Zutatenmengen für drei Personen sowie eine Kochanleitung. Mengen, Einkaufsbudget und geschätzte Nährwerte berücksichtigen die gewählte Personenzahl. Alle 100 neuen Rezepte wurden auf gültige Produkt-IDs und berechenbare Nährwerte geprüft.
 
-Alle 24 Rezepte gehören als statische Daten zur App in `cookbooks.js`. Es gibt keine laufende Abfrage, keinen externen Server und keine laufenden Gebühren. Die bestehende **private** Importfunktion für eigene Bücher bleibt erhalten. Andere Rezeptdaten, Einkaufslisten, Einstellungen und Ernährungstagebuch bleiben auf dem lokalen Gerät.
+Die ursprünglichen 24 Kochbuchrezepte liegen in `cookbooks.js`, die 50 zusätzlichen deftigen Rezepte in `hearty-extra.js` und die 50 zusätzlichen Fitnessrezepte in `fitness-extra.js`. Alle Dateien sind für die Offline-Nutzung im Cache eingetragen.
+
+Im **Wochenplan → Kochstil** kannst du «Gemischt», «Deftige Küche» oder «Fitnessküche» wählen und den Plan neu berechnen. Dabei werden passende Gerichte bevorzugt; der Plan kann ergänzend andere Gerichte enthalten, um eine abwechslungsreiche Woche und möglichst passende Einkaufskosten zu erreichen. Deine bisherigen Pläne und Kochbuchimporte bleiben erhalten.
+
+Bei allen Rezepten handelt es sich um neu formulierte App-Rezepte, **nicht um abgeschriebene kommerzielle Kochbücher**. Preise und Nährwerte bleiben Schätzungen; die App hat nach wie vor keine geprüfte Live-Anbindung an das Sortiment der Migros Herzogenbuchsee.
 
 ## Ernährungstagebuch und Nährwerte
 
