@@ -38,5 +38,6 @@ jobs:
           git add migros-prices.json
           if ! git diff --cached --quiet; then
             git commit -m "Migros-Webpreise aktualisieren (automatisch)"
+            git pull --rebase
             git push
           fi
