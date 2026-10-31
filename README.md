@@ -1,8 +1,16 @@
-# Family Food Planner – Migros (Version 1.6)
+# Family Food Planner – Migros (Version 1.7)
 
 Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
 **Online:** https://mherfurthhtm.github.io/family-food-planner/
+
+## Erste konkrete Migros-Preiszuordnung (Version 1.7)
+
+Für zehn zentrale Rezeptzutaten wurden Produktbezeichnung, Verpackungsgrösse und veröffentlichte Angaben auf Migros.ch bzw. Migipedia in den Standardkatalog übernommen: M-Classic Vollkorn-Haferflocken grob (1 kg, CHF 1.40), Valflora Vollmilch UHT (1 l, CHF 1.55), Ruchbrot (500 g, CHF 2.90), IP-SUISSE Freilandeier 53+ (10 Stk., CHF 5.30), Migros Langkornreis parboiled (1 kg, CHF 1.35), M-Budget Magerquark (500 g, CHF 1.25), You Skyr Nature (450 g, CHF 2.65), Migros Karotten (1 kg, CHF 1.95), M-Classic Weissmehl (1 kg, CHF 1.90) und M-Budget Mozzarella (2 × 125 g, CHF 1.60).
+
+In der Einkaufsliste erscheint dafür **«Migros-Onlinepreis · Filiale ungeprüft»** mit Link zur Quelle. Die übrigen Produkte bleiben als **Richtpreise** erkennbar. Bereits manuell zugeordnete Artikel/Preise bleiben erhalten und haben Vorrang. Die Wochenplanung verwendet die konkret hinterlegten Packungsgrössen für die Berechnung ganzer Packungen. Die Preisangaben wurden aus öffentlich auffindbaren Migros-/Migipedia-Seiten abgelesen, teils mit älterem Seitenstand. Sie sind **keine verifizierten Tagespreise**, keine Filialbestätigung für Herzogenbuchsee und keine Live-Schnittstelle. Migros-Aktionen können abweichen.
+
+Preisquellen (Auswahl): [Haferflocken](https://www.migros.ch/de/product/104202100000), [Quark](https://www.migros.ch/de/product/200803100000), [Vollmilch](https://www.migros.ch/de/product/204016100000), [Eier](https://migipedia.migros.ch/de/ip-suisse-eier-53-freilandhaltung-196025001000), [Reis](https://migipedia.migros.ch/de/104415300000), [Karotten](https://migipedia.migros.ch/de/migros-karotten-274502502400). Im Programm sind für alle zehn Einträge Quellen hinterlegt.
 
 ## Stammfiliale Herzogenbuchsee (ab Version 1.5)
 
