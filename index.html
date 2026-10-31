@@ -269,6 +269,13 @@ main{max-width:1170px;padding:31px clamp(18px,3.3vw,46px) 76px}
  .summary-card h3{margin:0 0 14px}
  .summary-card{box-shadow:none}
 }
+
+/* Eindeutige Navigationssymbole statt schwer lesbarer Sonderzeichen */
+.sidebar .nav-symbol{width:23px;height:23px;display:inline-flex;align-items:center;justify-content:center}
+.nav-symbol svg,.mobile-nav-icon svg{display:block;width:21px;height:21px}
+.mobile-nav-icon{width:27px;height:26px;display:flex;align-items:center;justify-content:center}
+.mobile-nav-icon svg{width:23px;height:23px}
+.mobile-nav-item.active svg{stroke-width:2.15}
 </style>
 </head>
 <body>
@@ -277,11 +284,11 @@ main{max-width:1170px;padding:31px clamp(18px,3.3vw,46px) 76px}
       <div class="brand"><span class="brand-icon" aria-hidden="true">F</span><div><strong>Family<span>Food</span></strong><small>PLANEN · EINKAUFEN · GENIESSEN</small></div></div>
       <div class="sidebar-label">MENÜ</div>
       <nav class="nav-links" aria-label="Hauptnavigation">
-        <button class="nav-item active" data-view="plan"><span class="nav-symbol">▦</span> Wochenplan</button>
-        <button class="nav-item" data-view="list"><span class="nav-symbol">☷</span> Einkaufsliste <span class="nav-count" id="nav-list-count">0</span></button>
-        <button class="nav-item" data-view="nutrition"><span class="nav-symbol">◷</span> Ernährungstagebuch</button>
-        <button class="nav-item" data-view="books"><span class="nav-symbol">▤</span> Meine Kochbücher</button>
-        <button class="nav-item" data-view="settings"><span class="nav-symbol">⚙</span> Einstellungen</button>
+        <button class="nav-item active" data-view="plan"><span class="nav-symbol"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 15h2M14 15h2"/></svg></span> Wochenplan</button>
+        <button class="nav-item" data-view="list"><span class="nav-symbol"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1"/><circle cx="20" cy="20" r="1"/><path d="M1.5 3h3l2.8 12.5h12.5l2-9H5.3"/></svg></span> Einkaufsliste <span class="nav-count" id="nav-list-count">0</span></button>
+        <button class="nav-item" data-view="nutrition"><span class="nav-symbol"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V12M10 20V5M16 20v-9M22 20v-5M2 20h20"/></svg></span> Ernährungstagebuch</button>
+        <button class="nav-item" data-view="books"><span class="nav-symbol"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h7v16H4zM13 4h7v16h-7zM7 8h1M16 8h1"/></svg></span> Meine Kochbücher</button>
+        <button class="nav-item" data-view="settings"><span class="nav-symbol"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.3 15.1a7.8 7.8 0 0 0 .1-6.2l2-1.5-2-3.5-2.4.8a8.3 8.3 0 0 0-5-2L11.5 0h-4L7 2.8A8.5 8.5 0 0 0 3.3 6L1 5.4-.7 9l2.2 1.5a8.2 8.2 0 0 0 0 4L-.7 16l1.7 3.6 2.3-.6A8.5 8.5 0 0 0 7 22l.5 2.8h4L12 22a8.3 8.3 0 0 0 5-2l2.4.8 2-3.5z" transform="translate(2.5 1.5) scale(.78)"/></svg></span> Einstellungen</button>
       </nav>
       <div class="side-note"><span>⌂</span><p>Dein Einkauf. <strong>Einfach geplant.</strong></p><small>56 Migros-Zutaten · 167 Rezepte</small></div>
       <div class="side-bottom"><span class="online-dot"></span> Migros · Version 2.0</div>
@@ -290,7 +297,7 @@ main{max-width:1170px;padding:31px clamp(18px,3.3vw,46px) 76px}
       <header class="topbar"><div class="topbar-start"><span class="tiny-logo">F</span><span class="eyebrow">Family Food</span></div><span id="week-range" class="week-range"></span></header>
       <main id="main" tabindex="-1" aria-live="polite"></main>
     </div>
-    <nav class="bottom-nav" aria-label="Mobile Navigation"><button class="mobile-nav-item active" data-view="plan" aria-label="Wochenplan"><span aria-hidden="true">▦</span>Wochenplan</button><button class="mobile-nav-item" data-view="list" aria-label="Einkaufsliste"><span aria-hidden="true">☷</span>Einkauf</button><button class="mobile-nav-item" data-view="nutrition" aria-label="Ernährungstagebuch"><span aria-hidden="true">◷</span>Tagebuch</button><button class="mobile-nav-item" data-view="more" aria-label="Weitere Bereiche"><span aria-hidden="true">☰</span>Mehr</button></nav>
+    <nav class="bottom-nav" aria-label="Mobile Navigation"><button class="mobile-nav-item active" data-view="plan" aria-label="Wochenplan"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18M8 15h2M14 15h2"/></svg></span>Wochenplan</button><button class="mobile-nav-item" data-view="list" aria-label="Einkaufsliste"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1"/><circle cx="20" cy="20" r="1"/><path d="M1.5 3h3l2.8 12.5h12.5l2-9H5.3"/></svg></span>Einkauf</button><button class="mobile-nav-item" data-view="nutrition" aria-label="Ernährungstagebuch"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V12M10 20V5M16 20v-9M22 20v-5M2 20h20"/></svg></span>Tagebuch</button><button class="mobile-nav-item" data-view="more" aria-label="Weitere Bereiche"><span class="mobile-nav-icon"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="1"/><circle cx="12" cy="6" r="1"/><circle cx="19" cy="6" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="18" r="1"/><circle cx="12" cy="18" r="1"/><circle cx="19" cy="18" r="1"/></svg></span>Mehr</button></nav>
   </div>
   <div id="modal-root"></div>
   <div id="toast" role="status" aria-live="polite"></div>
