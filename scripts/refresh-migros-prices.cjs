@@ -55,8 +55,9 @@ async function main(){
    if(!product){console.log(item.id+': Artikel nicht gefunden');missing++;continue;}
    const name=normal(product.name||product.title||product.productInformation?.mainInformation?.name);
    if(!name.includes(normal(item.nameContains))){console.log(item.id+': Produktname abweichend ('+name+')');missing++;continue;}
-   const pack=quantityInUnit(product.offer?.quantity,item.unit);
-   if(pack!==item.pack){console.log(item.id+': Packungsinhalt geändert ('+product.offer?.quantity+')');missing++;continue;}
+   const actualQuantity=String(product.offer?.quantity||'').toLocaleLowerCase('de-CH').replace(/\s/g,'');
+   const pack=item.physicalQuantity?item.pack:quantityInUnit(product.offer?.quantity,item.unit);
+   if((item.physicalQuantity&&actualQuantity!==String(item.physicalQuantity).toLocaleLowerCase('de-CH').replace(/\s/g,''))||pack!==item.pack){console.log(item.id+': Packungsinhalt geändert ('+product.offer?.quantity+')');missing++;continue;}
    const price=numberFromPrice(product.offer?.price?.advertisedDisplayValue);
    if(price==null){console.log(item.id+': Preis fehlt');missing++;continue;}
    const prev=old[item.id];
