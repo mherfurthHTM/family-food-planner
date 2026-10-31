@@ -37,7 +37,7 @@
         <button class="nav-item" data-view="settings"><span class="nav-symbol">⚙</span> Einstellungen</button>
       </nav>
       <div class="side-note"><span>✦</span><p>Gut geplant.<br><strong>Besser gegessen.</strong></p><small>Weniger Lebensmittel verschwenden. Mehr aus deinem Budget machen.</small></div>
-      <div class="side-bottom"><span class="online-dot"></span> Migros · Version 1.5</div>
+      <div class="side-bottom"><span class="online-dot"></span> Migros · Version 1.6</div>
     </aside>
     <div class="main-wrap">
       <header class="topbar"><div class="topbar-start"><span class="tiny-logo">✳</span><span class="eyebrow">FAMILY FOOD PLANNER</span></div><span id="week-range" class="week-range"></span></header>
@@ -48,6 +48,8 @@
   <div id="modal-root"></div>
   <div id="toast" role="status" aria-live="polite"></div>
   <script src="cookbooks.js"></script>
+  <script src="hearty-extra.js"></script>
+  <script src="fitness-extra.js"></script>
   <script>
 /* Family Food Planner V1 – client-side, no login, prices are indicative not live */
 (() => {
@@ -396,7 +398,7 @@ function booksPage(){
   return '<section class="form-card"><div class="day-top"><h2>'+title+' '+esc(book)+'</h2><span class="today-chip">'+items.length+' Rezepte</span></div><p>'+detail+'</p>'+
    (style?'<div class="settings-bottom" style="margin:6px 0 12px"><button class="btn primary small" type="button" data-action="select-book-style" data-style="'+style+'">Diese Küche für die Woche bevorzugen</button></div>':'')+rows+'</section>';
  }).join('');
- return '<div class="page-intro"><div><div class="kicker">DEINE REZEPTSAMMLUNG</div><h1>Meine Kochbücher 📚</h1><p>Zwei kostenlose Kochsammlungen und deine selbst importierten Rezepte.</p></div></div>'+
+ return '<div class="page-intro"><div><div class="kicker">DEINE REZEPTSAMMLUNG</div><h1>Meine Kochbücher 📚</h1><p>Zwei Kochsammlungen mit je 62 Rezepten und deine selbst importierten Rezepte.</p></div></div>'+
   cards+
   '<section class="form-card"><h2>Weitere Rezepte importieren</h2><p>Du kannst zusätzlich eigene, vorbereitete Rezeptdateien (JSON) importieren. Persönliche Kochbuchrezepte bleiben lokal auf deinem Gerät und werden nicht öffentlich auf GitHub veröffentlicht.</p>'+
   '<div class="settings-bottom"><label class="btn primary" for="book-file" style="cursor:pointer">＋ Rezeptdatei auswählen</label><input type="file" id="book-file" accept=".json,application/json" aria-label="Rezeptdatei auswählen" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"><button type="button" class="btn" data-action="example-book">⇩ Beispiel-Datei</button><button type="button" class="btn" data-action="export-book">⇩ Eigene Kochbücher sichern</button></div>'+
