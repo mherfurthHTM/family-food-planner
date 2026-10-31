@@ -16,9 +16,9 @@
       "unit": "ml"
     },
     "yogurt": {
-      "migrosId": "205003000000",
+      "migrosId": "205050800000",
       "nameContains": "joghurt",
-      "pack": 500,
+      "pack": 1000,
       "unit": "g"
     },
     "quark": {
@@ -262,6 +262,48 @@
       "nameContains": "vollrahm",
       "pack": 500,
       "unit": "ml"
+    },
+    "bread": {
+      "migrosId": "111497910000",
+      "nameContains": "st. galler ruchbrot",
+      "pack": 500,
+      "unit": "g"
+    },
+    "peanut": {
+      "migrosId": "151200400000",
+      "nameContains": "erdnussbutter",
+      "pack": 250,
+      "unit": "g"
+    },
+    "kidney": {
+      "migrosId": "153012400000",
+      "nameContains": "rote kidneybohnen",
+      "pack": 310,
+      "unit": "g"
+    },
+    "chickpea": {
+      "migrosId": "153134000000",
+      "nameContains": "kichererbsen",
+      "pack": 245,
+      "unit": "g"
+    },
+    "salad": {
+      "migrosId": "270680309200",
+      "nameContains": "kopfsalat",
+      "pack": 1,
+      "unit": "Stk."
+    },
+    "salt": {
+      "migrosId": "106223500000",
+      "nameContains": "tafelsalz",
+      "pack": 500,
+      "unit": "g"
+    },
+    "broccoli": {
+      "migrosId": "275704701000",
+      "nameContains": "broccoli",
+      "pack": 1000,
+      "unit": "g"
     }
   }
 }
