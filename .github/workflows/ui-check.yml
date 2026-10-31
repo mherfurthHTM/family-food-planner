@@ -1,0 +1,31 @@
+name: Family Food UI prüfen
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - cookbooks.js
+      - hearty-extra.js
+      - fitness-extra.js
+      - migros-prices.json
+      - scripts/test-ui.cjs
+      - .github/workflows/ui-check.yml
+
+permissions:
+  contents: read
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Testumgebung installieren
+        run: npm install --no-save --no-package-lock --ignore-scripts jsdom@26
+      - name: Navigation und Funktionen überprüfen
+        run: node scripts/test-ui.cjs
