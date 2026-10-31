@@ -814,7 +814,7 @@ window.FamilyFoodBuiltInCookbooks=(window.FamilyFoodBuiltInCookbooks||[]).concat
     "id": "fitness-extra-20",
     "source": "Fitnessküche",
     "type": "lunch",
-    "name": "Tofu-Linsen-Bowl mit Peperoni",
+    "name": "Knusprige Tofu-Linsen-Bowl mit Peperoni",
     "emoji": "🥗",
     "min": 35,
     "ingredients": [
