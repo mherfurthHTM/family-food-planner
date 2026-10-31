@@ -1,8 +1,23 @@
-# Family Food Planner – Migros (Version 1.7)
+# Family Food Planner – Migros (Version 1.8)
 
 Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
 **Online:** https://mherfurthhtm.github.io/family-food-planner/
+
+## Kostenloser automatischer Migros-Preisabgleich (Test, Version 1.8)
+
+Mit GitHub Actions (auf dem öffentlichen Repository kostenlos) ist ein experimenteller Preisabgleich zweimal pro Woche und auf Knopfdruck vorbereitet. Er verwendet [migros-api-wrapper](https://github.com/Aliyss/migros-api-wrapper) für anonym zugängliche, **inoffizielle** Migros-Schnittstellen und benötigt **keinen Migros-Login, keine API-Schlüssel und kein bezahltes Hosting**.
+
+- Die Erprobung betrifft sechs fest zugeordnete Migros-Produkt-IDs: Haferflocken, Vollmilch, Freilandeier, Langkornreis, Magerquark und Karotten.
+- `.github/workflows/migros-prices.yml` startet den Test, `scripts/refresh-migros-prices.cjs` ruft gezielt die Produktdetails ab, und `migros-prices.json` speichert nur erfolgreich erkannte Artikel mit Preis und Zeitstempel.
+- Die App lädt die JSON-Datei bei Start. Automatisch abgefragte Preise ersetzen den bisherigen Katalogpreis **nur**, wenn sie plausibel sind und höchstens 14 Tage alt sind.
+- Manuell selbst gewählte Produkte mit Preisen haben weiterhin Vorrang.
+- Ohne Antwort, bei API-Änderung, Ausfall, falschem Namen oder fehlenden Daten **bleibt die App bei den bisherigen Preisangaben**. Fehler führen nicht dazu, dass erfundene oder leere Preise erscheinen.
+- Die automatischen Preise sind **Online-Webpreise, keine für die Migros MM Herzogenbuchsee bestätigten Filialpreise**. Auch die Bestände werden nicht geprüft.
+- **Status:** Der Workflow-Code ist eingerichtet; die erfolgreiche Ausführung und der reale Preisabruf sind noch nicht bestätigt. GitHub → Actions → „Migros-Preise prüfen (inoffiziell)“ zeigt den Lauf und eventuelle Fehlermeldungen.
+- Alle anderen Produkte bleiben vorerst bei Web-Richtpreisen; für eine breitere automatische Abdeckung müssen konkrete Artikel-IDs und Packungsgrössen sorgfältig zugeordnet werden. Kein automatischer Komplettkatalog.
+
+Migros erklärt im [eigenen Forum](https://migipedia.migros.ch/de/forum/migipedia/is-there-an-api-for-migros-product-data), dass sie keine offizielle öffentliche Produktdaten-API anbietet. Inoffizielle Endpunkte können sich ohne Ankündigung ändern und unterliegen Migros' Nutzungsbedingungen.
 
 ## Erste konkrete Migros-Preiszuordnung (Version 1.7)
 
