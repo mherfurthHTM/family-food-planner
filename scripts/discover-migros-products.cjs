@@ -12,12 +12,15 @@ const catalog=[...block.matchAll(/\['([^']+)','([^']+)',(\d+),'([^']+)',(\d+(?:\
 if(catalog.length<45)throw Error('Produktkatalog unvollständig: '+catalog.length);
 const aliases={
  yogurt:'Nature Joghurt',berries:'Beeren tiefgekühlt',peanut:'Erdnussbutter',
+ kidney:'Kidney Bohnen',chickpea:'Kichererbsen',tinnedtomato:'Tomaten gehackt',corn:'Zuckermais',salt:'Jodsalz',
  passata:'Passierte Tomaten',tinnedtomato:'Tomaten gehackt Dose',chicken:'Poulet Brust',
  mince:'Rindshackfleisch',tuna:'Thon nature',salmon:'Lachsfilet',
  pepper:'Peperoni',pepperground:'Pfeffer gemahlen',cream:'Vollrahm',
  jam:'Konfitüre Erdbeere',herbs:'Kräuter italienische',broth:'Gemüse Bouillon',
  peas:'Erbsen tiefgekühlt',spinach:'Blattspinat tiefgekühlt',
- bread:'Ruchbrot',salt:'Speisesalz',oil:'Rapsöl',cheese:'Reibkäse'
+ bread:'Ruchbrot',oil:'Rapsöl',cheese:'Reibkäse',
+ tuna:'Thon in Wasser',tortilla:'Tortilla Weizen',tomato:'Tomaten frisch',
+ salad:'Kopfsalat',broccoli:'Broccoli frisch',lentils:'Linsen rot'
 };
 const api=new MigrosAPI();
 const sleep=t=>new Promise(ok=>setTimeout(ok,t));
@@ -49,7 +52,7 @@ async function main(){
   const q=aliases[p.id]||p.name;
   try{
    const result=await api.products.productSearch.searchProduct({query:q,language:'de'},{},token);
-   const ids=(result.productIds||[]).slice(0,5).map(String);
+   const ids=(result.productIds||[]).slice(0,8).map(String);
    items.push({...p,query:q,ids});
    all.push(...ids);
    console.log(p.id+': '+ids.length+' Suchtreffer (max. 5)');
