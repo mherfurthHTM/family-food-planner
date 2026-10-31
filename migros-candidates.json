@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-10-31T21:25:19.729Z",
+  "generatedAt": "2026-10-31T21:27:02.472Z",
   "warning": "Ungeprüfte Produktvorschläge. Keine automatische Übernahme.",
   "products": [
     {
@@ -84,6 +84,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/104202100000"
+        },
+        {
+          "uid": "100149472",
+          "migrosId": "104283300000",
+          "name": "Dinkel Flocken",
+          "price": 1.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.36
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104283300000"
+        },
+        {
+          "uid": "100201203",
+          "migrosId": "104263100000",
+          "name": "Hafervollkornflocken",
+          "price": 2.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.74
+          },
+          "quantity": "400g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104263100000"
+        },
+        {
+          "uid": "100150263",
+          "migrosId": "104225400000",
+          "name": "Schweizer Hirseflocken",
+          "price": 4.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.99
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104225400000"
         }
       ]
     },
@@ -168,6 +213,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/204022800000"
+        },
+        {
+          "uid": "100033146",
+          "migrosId": "204020100000",
+          "name": "Milch Drink",
+          "price": 1.5,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 0.15
+          },
+          "quantity": "1l",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/204020100000"
+        },
+        {
+          "uid": "100007434",
+          "migrosId": "204008000000",
+          "name": "Vollmilch",
+          "price": 1.9,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 0.19
+          },
+          "quantity": "1l",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/204008000000"
+        },
+        {
+          "uid": "100033141",
+          "migrosId": "204016100000",
+          "name": "Vollmilch",
+          "price": 1.6,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 0.16
+          },
+          "quantity": "1l",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/204016100000"
         }
       ]
     },
@@ -252,6 +342,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/205050800000"
+        },
+        {
+          "uid": "100004999",
+          "migrosId": "205001400000",
+          "name": "Joghurt",
+          "price": 0.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.44
+          },
+          "quantity": "180g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/205001400000"
+        },
+        {
+          "uid": "100018064",
+          "migrosId": "521055100000",
+          "name": "Joghurt Nature",
+          "price": 4.2,
+          "priceUnit": {
+            "unit": "piece",
+            "value": 1.05
+          },
+          "quantity": "4 Stk.",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/521055100000"
+        },
+        {
+          "uid": "100032186",
+          "migrosId": "205203600000",
+          "name": "Joghurt",
+          "price": 0.7,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.47
+          },
+          "quantity": "150g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/205203600000"
         }
       ]
     },
@@ -336,6 +471,36 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/200723500200"
+        },
+        {
+          "uid": "100180071",
+          "migrosId": "200834000000",
+          "name": "Magerquark",
+          "price": 1.45,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.58
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200834000000"
+        },
+        {
+          "uid": "100217440",
+          "migrosId": "200611500100",
+          "name": "Magerquark",
+          "price": null,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.4
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200611500100"
         }
       ]
     },
@@ -474,6 +639,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/111504200200"
+        },
+        {
+          "uid": "100207844",
+          "migrosId": "111497910000",
+          "name": "St. Galler Ruchbrot",
+          "price": 2.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.56
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/111497910000"
+        },
+        {
+          "uid": "100097516",
+          "migrosId": "111411900500",
+          "name": "Berner Brot",
+          "price": 3.45,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.69
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/111411900500"
+        },
+        {
+          "uid": "100023224",
+          "migrosId": "111241500000",
+          "name": "Früchtebrot",
+          "price": null,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.83
+          },
+          "quantity": "480g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/111241500000"
         }
       ]
     },
@@ -558,6 +768,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/196045000400"
+        },
+        {
+          "uid": "100022240",
+          "migrosId": "196072000600",
+          "name": "Picknick Eier, Regenbogen",
+          "price": 3.6,
+          "priceUnit": {
+            "unit": "piece",
+            "value": 0.6
+          },
+          "quantity": "6 Stück",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/196072000600"
+        },
+        {
+          "uid": "100006283",
+          "migrosId": "196070800400",
+          "name": "Picknick Eier",
+          "price": 3.95,
+          "priceUnit": {
+            "unit": "piece",
+            "value": 0.99
+          },
+          "quantity": "4 Stück",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/196070800400"
+        },
+        {
+          "uid": "100167617",
+          "migrosId": "196570001000",
+          "name": "Eier",
+          "price": 4.8,
+          "priceUnit": {
+            "unit": "piece",
+            "value": 0.48
+          },
+          "quantity": "10 Stück",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/196570001000"
         }
       ]
     },
@@ -642,6 +897,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/264200601000"
+        },
+        {
+          "uid": "100208213",
+          "migrosId": "264200701000",
+          "name": "Banane",
+          "price": 1.2,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.12
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/264200701000"
+        },
+        {
+          "uid": "100199475",
+          "migrosId": "105295100000",
+          "name": "Bananen",
+          "price": 1.6,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.07
+          },
+          "quantity": "150g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/105295100000"
+        },
+        {
+          "uid": "100175995",
+          "migrosId": "105222400000",
+          "name": "Bananen-Chips",
+          "price": 2.9,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 3.87
+          },
+          "quantity": "75g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/105222400000"
         }
       ]
     },
@@ -720,6 +1020,48 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/260206104100"
+        },
+        {
+          "uid": "100013914",
+          "migrosId": "260233803300",
+          "name": "Äpfel",
+          "price": 3.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.16
+          },
+          "quantity": "2.5kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/260233803300"
+        },
+        {
+          "uid": "100055988",
+          "migrosId": "260215701000",
+          "name": "Äpfel",
+          "price": 2.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.28
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/260215701000"
+        },
+        {
+          "uid": "100024405",
+          "migrosId": "260238504100",
+          "name": "Äpfel",
+          "price": null,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/260238504100"
         }
       ]
     },
@@ -795,6 +1137,48 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/260516501000"
+        },
+        {
+          "uid": "100052801",
+          "migrosId": "260509601000",
+          "name": "Birnen",
+          "price": 3.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.35
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/260509601000"
+        },
+        {
+          "uid": "100055998",
+          "migrosId": "260506701000",
+          "name": "Birnen",
+          "price": null,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/260506701000"
+        },
+        {
+          "uid": "100056000",
+          "migrosId": "260508101000",
+          "name": "Birnen",
+          "price": 3.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.4
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/260508101000"
         }
       ]
     },
@@ -879,6 +1263,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/161425500000"
+        },
+        {
+          "uid": "100016342",
+          "migrosId": "161420500000",
+          "name": "Himbeeren",
+          "price": 7.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.59
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/161420500000"
+        },
+        {
+          "uid": "100031129",
+          "migrosId": "161425700000",
+          "name": "Beerenmischung",
+          "price": 4.3,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.57
+          },
+          "quantity": "750g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/161425700000"
+        },
+        {
+          "uid": "100094682",
+          "migrosId": "161427400000",
+          "name": "Himbeeren",
+          "price": 4.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.98
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/161427400000"
         }
       ]
     },
@@ -963,6 +1392,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/104258800000"
+        },
+        {
+          "uid": "100161992",
+          "migrosId": "101352700000",
+          "name": "Peanut Butter Cups",
+          "price": 3.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 5.13
+          },
+          "quantity": "5 x 15.4g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/101352700000"
+        },
+        {
+          "uid": "100161000",
+          "migrosId": "101352600000",
+          "name": "Peanut Butter Cups minis",
+          "price": 3.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 4.39
+          },
+          "quantity": "90g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/101352600000"
+        },
+        {
+          "uid": "100162021",
+          "migrosId": "104266900000",
+          "name": "Proteinriegel",
+          "price": 2.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 5.56
+          },
+          "quantity": "45g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104266900000"
         }
       ]
     },
@@ -1047,6 +1521,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/151006700000"
+        },
+        {
+          "uid": "100205317",
+          "migrosId": "151087100000",
+          "name": "Konfitüre",
+          "price": 3.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.01
+          },
+          "quantity": "350g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/151087100000"
+        },
+        {
+          "uid": "100194304",
+          "migrosId": "151050100000",
+          "name": "Konfitüre",
+          "price": 3.25,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.01
+          },
+          "quantity": "6 x 27g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/151050100000"
+        },
+        {
+          "uid": "100090660",
+          "migrosId": "151002600000",
+          "name": "Konfitüre",
+          "price": 2.75,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.65
+          },
+          "quantity": "420g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/151002600000"
         }
       ]
     },
@@ -1131,6 +1650,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/104414800000"
+        },
+        {
+          "uid": "100032299",
+          "migrosId": "104474600000",
+          "name": "Langkorn Reis",
+          "price": 2.9,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.29
+          },
+          "quantity": "1kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104474600000"
+        },
+        {
+          "uid": "100068756",
+          "migrosId": "104465900000",
+          "name": "Schnelle Mischung",
+          "price": 2.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104465900000"
+        },
+        {
+          "uid": "100022417",
+          "migrosId": "104412200000",
+          "name": "Basmati",
+          "price": 5.3,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.06
+          },
+          "quantity": "4 x 125g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104412200000"
         }
       ]
     },
@@ -1215,6 +1779,48 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/104100300000"
+        },
+        {
+          "uid": "100013607",
+          "migrosId": "130541200000",
+          "name": "Spaghetti Carbonara",
+          "price": 2.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.7
+          },
+          "quantity": "400g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/130541200000"
+        },
+        {
+          "uid": "100192409",
+          "migrosId": "521126700000",
+          "name": "Spaghetti Bolognese Brei ",
+          "price": 1.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.82
+          },
+          "quantity": "220g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/521126700000"
+        },
+        {
+          "uid": "100221213",
+          "migrosId": "818834000210",
+          "name": "Damen Spaghetti Top 2",
+          "price": 9.95,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/818834000210"
         }
       ]
     },
@@ -1299,6 +1905,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/104146900000"
+        },
+        {
+          "uid": "100049894",
+          "migrosId": "104165000000",
+          "name": "Penne",
+          "price": 1.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.39
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104165000000"
+        },
+        {
+          "uid": "100151048",
+          "migrosId": "104159100000",
+          "name": "Penne",
+          "price": 1.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.39
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104159100000"
+        },
+        {
+          "uid": "100023387",
+          "migrosId": "104125100000",
+          "name": "Penne Rigate",
+          "price": 2.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.56
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104125100000"
         }
       ]
     },
@@ -1383,6 +2034,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/104432000000"
+        },
+        {
+          "uid": "100050071",
+          "migrosId": "104432200000",
+          "name": "Couscous",
+          "price": 3.7,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.73
+          },
+          "quantity": "510g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104432200000"
+        },
+        {
+          "uid": "100013450",
+          "migrosId": "155110500000",
+          "name": "Couscous",
+          "price": 3.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.38
+          },
+          "quantity": "160g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/155110500000"
+        },
+        {
+          "uid": "100173123",
+          "migrosId": "106236100000",
+          "name": "Couscous",
+          "price": 4.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 10
+          },
+          "quantity": "45g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106236100000"
         }
       ]
     },
@@ -1467,6 +2163,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/274463402500"
+        },
+        {
+          "uid": "100023244",
+          "migrosId": "274485002300",
+          "name": "Kartoffeln",
+          "price": 3.2,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.32
+          },
+          "quantity": "1kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/274485002300"
+        },
+        {
+          "uid": "100026462",
+          "migrosId": "274461002300",
+          "name": "Kartoffeln",
+          "price": 1.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.18
+          },
+          "quantity": "1kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/274461002300"
+        },
+        {
+          "uid": "100174275",
+          "migrosId": "160103900000",
+          "name": "mini Gratins ",
+          "price": 4.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.38
+          },
+          "quantity": "4 x 90g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/160103900000"
         }
       ]
     },
@@ -1551,6 +2292,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/521004700000"
+        },
+        {
+          "uid": "100019143",
+          "migrosId": "101906400000",
+          "name": "Süsskartoffel-Chips",
+          "price": 3.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 3.5
+          },
+          "quantity": "100g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/101906400000"
+        },
+        {
+          "uid": "100003772",
+          "migrosId": "521011100000",
+          "name": "Gemüsebrei mit Süsskartoffeln & Huhn",
+          "price": 2.2,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.16
+          },
+          "quantity": "190g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/521011100000"
+        },
+        {
+          "uid": "100130260",
+          "migrosId": "521110200000",
+          "name": "Süsskartoffel Weizen Brei",
+          "price": 4.5,
+          "priceUnit": {
+            "unit": "piece",
+            "value": 2.25
+          },
+          "quantity": "2 Stk.",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/521110200000"
         }
       ]
     },
@@ -1559,79 +2345,127 @@
       "name": "Tortilla-Wraps",
       "pack": 8,
       "unit": "Stk.",
-      "query": "Tortilla-Wraps",
+      "query": "Tortilla Weizen",
       "candidates": [
         {
-          "uid": "100092137",
-          "migrosId": "131321900000",
-          "name": "Wrap Chicken Fajita",
+          "uid": "100004985",
+          "migrosId": "158567200000",
+          "name": "Tortillas Weizen",
+          "price": 4.55,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.4
+          },
+          "quantity": "326g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/158567200000"
+        },
+        {
+          "uid": "100025923",
+          "migrosId": "158564400000",
+          "name": "Big Tortillas Weizen",
+          "price": 5.45,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.56
+          },
+          "quantity": "350g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/158564400000"
+        },
+        {
+          "uid": "100147949",
+          "migrosId": "158560000000",
+          "name": "Weizen Tortillas",
+          "price": 3.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.19
+          },
+          "quantity": "320g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/158560000000"
+        },
+        {
+          "uid": "100044006",
+          "migrosId": "158567900000",
+          "name": "Mini Tortillas Weizen",
+          "price": 3.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.73
+          },
+          "quantity": "220g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/158567900000"
+        },
+        {
+          "uid": "100009732",
+          "migrosId": "158568200000",
+          "name": "Weizen Tortillas Easy Fill",
           "price": 5.95,
           "priceUnit": {
             "unit": "100g",
-            "value": 3.13
+            "value": 3.08
           },
-          "quantity": "190g",
+          "quantity": "193g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/131321900000"
+          "url": "https://www.migros.ch/de/product/158568200000"
         },
         {
-          "uid": "100141206",
-          "migrosId": "131323100000",
-          "name": "Wrap Caesar",
-          "price": 6.5,
+          "uid": "100215735",
+          "migrosId": "158562900000",
+          "name": "Tortillas",
+          "price": 1.5,
           "priceUnit": {
             "unit": "100g",
-            "value": 4.06
+            "value": 0.4
           },
-          "quantity": "160g",
+          "quantity": "372g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/131323100000"
+          "url": "https://www.migros.ch/de/product/158562900000"
         },
         {
-          "uid": "100224664",
-          "migrosId": "130411300000",
-          "name": "Wrap Thon",
+          "uid": "100093396",
+          "migrosId": "158513700000",
+          "name": "Tortillas",
           "price": 3.5,
           "priceUnit": {
             "unit": "100g",
-            "value": 1.94
+            "value": 1.46
           },
-          "quantity": "180g",
+          "quantity": "240g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/130411300000"
+          "url": "https://www.migros.ch/de/product/158513700000"
         },
         {
-          "uid": "100224665",
-          "migrosId": "130411200000",
-          "name": "Wrap Hummus",
-          "price": null,
-          "priceUnit": null,
-          "quantity": "180g",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/130411200000"
-        },
-        {
-          "uid": "100125624",
-          "migrosId": "131367000000",
-          "name": "Wrap Jerusalem Chicken",
-          "price": 7.95,
+          "uid": "100011930",
+          "migrosId": "158563300000",
+          "name": "Weiche Weizentortilla-Taschen",
+          "price": 5.95,
           "priceUnit": {
             "unit": "100g",
-            "value": 3.46
+            "value": 2.67
           },
-          "quantity": "230g",
+          "quantity": "223g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/131367000000"
+          "url": "https://www.migros.ch/de/product/158563300000"
         }
       ]
     },
@@ -1640,7 +2474,7 @@
       "name": "Rote Linsen",
       "pack": 500,
       "unit": "g",
-      "query": "Rote Linsen",
+      "query": "Linsen rot",
       "candidates": [
         {
           "uid": "100039464",
@@ -1656,6 +2490,21 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/105005300000"
+        },
+        {
+          "uid": "100214691",
+          "migrosId": "104461900000",
+          "name": "Linsen",
+          "price": 2.2,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.55
+          },
+          "quantity": "400g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104461900000"
         },
         {
           "uid": "100051197",
@@ -1688,21 +2537,6 @@
           "url": "https://www.migros.ch/de/product/138141500000"
         },
         {
-          "uid": "100214691",
-          "migrosId": "104461900000",
-          "name": "Linsen",
-          "price": 2.2,
-          "priceUnit": {
-            "unit": "100g",
-            "value": 0.55
-          },
-          "quantity": "400g",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/104461900000"
-        },
-        {
           "uid": "100137999",
           "migrosId": "130931700000",
           "name": "Hari&Co Taler Rote Linsen & Kürbis",
@@ -1716,6 +2550,21 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/130931700000"
+        },
+        {
+          "uid": "100049802",
+          "migrosId": "104100200000",
+          "name": "Sedanini",
+          "price": 2.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104100200000"
         }
       ]
     },
@@ -1724,16 +2573,213 @@
       "name": "Kidneybohnen, Dose",
       "pack": 400,
       "unit": "g",
-      "query": "Kidneybohnen, Dose",
-      "candidates": []
+      "query": "Kidney Bohnen",
+      "candidates": [
+        {
+          "uid": "100098827",
+          "migrosId": "153011900000",
+          "name": "Rote Kidney Bohnen",
+          "price": 1.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.81
+          },
+          "quantity": "240g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153011900000"
+        },
+        {
+          "uid": "100129312",
+          "migrosId": "152900600000",
+          "name": "Kidney Bohnen",
+          "price": 2.9,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.97
+          },
+          "quantity": "2X150g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/152900600000"
+        },
+        {
+          "uid": "100102283",
+          "migrosId": "105091400000",
+          "name": "Rote Kidney Bohnen",
+          "price": 2.1,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.53
+          },
+          "quantity": "400g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/105091400000"
+        },
+        {
+          "uid": "100090965",
+          "migrosId": "153012400000",
+          "name": "Rote Kidneybohnen",
+          "price": 0.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.31
+          },
+          "quantity": "310g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153012400000"
+        },
+        {
+          "uid": "100177942",
+          "migrosId": "153013000000",
+          "name": "Rote Kidneybohnen",
+          "price": 2.65,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.88
+          },
+          "quantity": "2 x 150g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153013000000"
+        }
+      ]
     },
     {
       "id": "chickpea",
       "name": "Kichererbsen, Dose",
       "pack": 400,
       "unit": "g",
-      "query": "Kichererbsen, Dose",
-      "candidates": []
+      "query": "Kichererbsen",
+      "candidates": [
+        {
+          "uid": "100210889",
+          "migrosId": "153134000000",
+          "name": "Kichererbsen",
+          "price": 1.05,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.43
+          },
+          "quantity": "245g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153134000000"
+        },
+        {
+          "uid": "100041096",
+          "migrosId": "153990100000",
+          "name": "Kichererbsen",
+          "price": 1.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.89
+          },
+          "quantity": "220g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153990100000"
+        },
+        {
+          "uid": "100176994",
+          "migrosId": "153150800000",
+          "name": "Kichererbsen",
+          "price": 3.3,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.2
+          },
+          "quantity": "2 x 138g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153150800000"
+        },
+        {
+          "uid": "100041097",
+          "migrosId": "104462400000",
+          "name": "Kichererbsen",
+          "price": 2.35,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.47
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104462400000"
+        },
+        {
+          "uid": "100034665",
+          "migrosId": "153133500000",
+          "name": "Kichererbsen",
+          "price": 1.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.83
+          },
+          "quantity": "234g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153133500000"
+        },
+        {
+          "uid": "100191020",
+          "migrosId": "105020200000",
+          "name": "Kichererbsen",
+          "price": 6.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.86
+          },
+          "quantity": "350g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/105020200000"
+        },
+        {
+          "uid": "100050112",
+          "migrosId": "105006000000",
+          "name": "Kichererbsen",
+          "price": 5.6,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.12
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/105006000000"
+        },
+        {
+          "uid": "100067548",
+          "migrosId": "105002900000",
+          "name": "Kichererbsen",
+          "price": 2.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.56
+          },
+          "quantity": "450g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/105002900000"
+        }
+      ]
     },
     {
       "id": "passata",
@@ -1816,6 +2862,36 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/153222900000"
+        },
+        {
+          "uid": "100036636",
+          "migrosId": "153233900000",
+          "name": "Passata",
+          "price": 1.55,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.43
+          },
+          "quantity": "360g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153233900000"
+        },
+        {
+          "uid": "100010506",
+          "migrosId": "153234000000",
+          "name": "Passata",
+          "price": 2.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.36
+          },
+          "quantity": "700g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153234000000"
         }
       ]
     },
@@ -1832,8 +2908,129 @@
       "name": "Mais, Dose",
       "pack": 285,
       "unit": "g",
-      "query": "Mais, Dose",
-      "candidates": []
+      "query": "Zuckermais",
+      "candidates": [
+        {
+          "uid": "100023342",
+          "migrosId": "131124000000",
+          "name": "Zuckermais",
+          "price": 9.4,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.94
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/131124000000"
+        },
+        {
+          "uid": "100045152",
+          "migrosId": "156055100000",
+          "name": "Maiskölbchen",
+          "price": 2.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.55
+          },
+          "quantity": "190g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/156055100000"
+        },
+        {
+          "uid": "100021062",
+          "migrosId": "156013300000",
+          "name": "Maiskölbchen",
+          "price": 1.4,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.74
+          },
+          "quantity": "190g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/156013300000"
+        },
+        {
+          "uid": "100052365",
+          "migrosId": "131123200000",
+          "name": "Zuckermais ",
+          "price": 7.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.78
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/131123200000"
+        },
+        {
+          "uid": "100222327",
+          "migrosId": "131121700000",
+          "name": "Zuckermais",
+          "price": 8.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.88
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/131121700000"
+        },
+        {
+          "uid": "100043277",
+          "migrosId": "131106800000",
+          "name": "Zuckermais",
+          "price": 8.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.88
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/131106800000"
+        },
+        {
+          "uid": "100065292",
+          "migrosId": "131120400000",
+          "name": "Zuckermais",
+          "price": 9.9,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.99
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/131120400000"
+        },
+        {
+          "uid": "100193117",
+          "migrosId": "521147000000",
+          "name": "Mais Flips",
+          "price": 2.75,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 3.1
+          },
+          "quantity": "90g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/521147000000"
+        }
+      ]
     },
     {
       "id": "coconut",
@@ -1916,6 +3113,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/158583100000"
+        },
+        {
+          "uid": "100205360",
+          "migrosId": "158583000000",
+          "name": "Kokosnussmilch",
+          "price": 2.1,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 0.53
+          },
+          "quantity": "400ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/158583000000"
+        },
+        {
+          "uid": "100027315",
+          "migrosId": "158570100000",
+          "name": "Kokosnussmilch Light",
+          "price": 2.7,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 1.08
+          },
+          "quantity": "250ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/158570100000"
+        },
+        {
+          "uid": "100028397",
+          "migrosId": "158570300000",
+          "name": "Kokosnussmilch",
+          "price": 7.5,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 0.75
+          },
+          "quantity": "1l",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/158570300000"
         }
       ]
     },
@@ -2000,6 +3242,48 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/231525586100"
+        },
+        {
+          "uid": "100046997",
+          "migrosId": "231525583602",
+          "name": "Pouletbrust",
+          "price": 3.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.75
+          },
+          "quantity": "200g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/231525583602"
+        },
+        {
+          "uid": "100057639",
+          "migrosId": "241110510000",
+          "name": "Pouletbrust",
+          "price": 3.35,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 3.35
+          },
+          "quantity": "100 g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/241110510000"
+        },
+        {
+          "uid": "100144485",
+          "migrosId": "241212440000",
+          "name": "Pouletbrust",
+          "price": null,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/241212440000"
         }
       ]
     },
@@ -2084,6 +3368,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/220220032092"
+        },
+        {
+          "uid": "100204082",
+          "migrosId": "220220032000",
+          "name": "Rindshackfleisch",
+          "price": 5.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.98
+          },
+          "quantity": "300g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/220220032000"
+        },
+        {
+          "uid": "100052387",
+          "migrosId": "220220000141",
+          "name": "Rindshackfleisch",
+          "price": 2.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.5
+          },
+          "quantity": "100 g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/220220000141"
+        },
+        {
+          "uid": "100065816",
+          "migrosId": "220220040011",
+          "name": "Rindshackfleisch",
+          "price": 2.1,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.1
+          },
+          "quantity": "100 g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/220220040011"
         }
       ]
     },
@@ -2176,37 +3505,112 @@
       "name": "Thon in Wasser",
       "pack": 300,
       "unit": "g",
-      "query": "Thon nature",
+      "query": "Thon in Wasser",
       "candidates": [
         {
-          "uid": "100132905",
-          "migrosId": "109087500000",
-          "name": "In Sauce",
-          "price": 5.95,
+          "uid": "100218405",
+          "migrosId": "155900100000",
+          "name": "Thon",
+          "price": null,
           "priceUnit": {
             "unit": "100g",
-            "value": 1.75
+            "value": 1.79
           },
-          "quantity": "4 x 85g",
+          "quantity": "2x56g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/109087500000"
+          "url": "https://www.migros.ch/de/product/155900100000"
         },
         {
-          "uid": "100003398",
-          "migrosId": "109300400000",
-          "name": "Fisch",
-          "price": 5.2,
+          "uid": "100218401",
+          "migrosId": "155900800000",
+          "name": "Thon",
+          "price": 2.55,
           "priceUnit": {
             "unit": "100g",
-            "value": 1.54
+            "value": 1.52
           },
-          "quantity": "4 x 85g",
+          "quantity": "3x56g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/109300400000"
+          "url": "https://www.migros.ch/de/product/155900800000"
+        },
+        {
+          "uid": "100218408",
+          "migrosId": "155900200000",
+          "name": "Thon",
+          "price": 1.3,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.87
+          },
+          "quantity": "150g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/155900200000"
+        },
+        {
+          "uid": "100007427",
+          "migrosId": "155127600000",
+          "name": "Thunfisch",
+          "price": 6.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 4.14
+          },
+          "quantity": "3 x 56g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/155127600000"
+        },
+        {
+          "uid": "100001780",
+          "migrosId": "155127200000",
+          "name": "Thunfisch",
+          "price": 4.6,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 4.11
+          },
+          "quantity": "112g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/155127200000"
+        },
+        {
+          "uid": "100026815",
+          "migrosId": "155130700000",
+          "name": "Rosa Thunfisch",
+          "price": 3.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.46
+          },
+          "quantity": "3 x 80g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/155130700000"
+        },
+        {
+          "uid": "100029991",
+          "migrosId": "155133700000",
+          "name": "Rosa Thon",
+          "price": 1.35,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.87
+          },
+          "quantity": "155g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/155133700000"
         }
       ]
     },
@@ -2291,6 +3695,45 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/251200300000"
+        },
+        {
+          "uid": "100015085",
+          "migrosId": "251200400000",
+          "name": "Lachsfilet",
+          "price": 2.2,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.2
+          },
+          "quantity": "100 g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/251200400000"
+        },
+        {
+          "uid": "100148549",
+          "migrosId": "251200350100",
+          "name": "Lachsfilet",
+          "price": null,
+          "priceUnit": null,
+          "quantity": "400g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/251200350100"
+        },
+        {
+          "uid": "100065262",
+          "migrosId": "250200325000",
+          "name": "Lachsfilet",
+          "price": null,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/250200325000"
         }
       ]
     },
@@ -2375,6 +3818,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/200608600000"
+        },
+        {
+          "uid": "100015538",
+          "migrosId": "212665200000",
+          "name": "Mozzarella",
+          "price": 1.6,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.64
+          },
+          "quantity": "2 x 125g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/212665200000"
+        },
+        {
+          "uid": "100004907",
+          "migrosId": "200609700000",
+          "name": "Mozzarella",
+          "price": 3.1,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.03
+          },
+          "quantity": "300g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200609700000"
+        },
+        {
+          "uid": "100021260",
+          "migrosId": "200616100000",
+          "name": "Mozzarella",
+          "price": 2.45,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.63
+          },
+          "quantity": "150g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200616100000"
         }
       ]
     },
@@ -2459,6 +3947,48 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/212594300000"
+        },
+        {
+          "uid": "100197760",
+          "migrosId": "212587800000",
+          "name": "Ömür Hirtenkäse",
+          "price": 7.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.8
+          },
+          "quantity": "1000g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/212587800000"
+        },
+        {
+          "uid": "100220474",
+          "migrosId": "212588300000",
+          "name": "Hirtenkäse",
+          "price": 5.6,
+          "priceUnit": null,
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/212588300000"
+        },
+        {
+          "uid": "100042755",
+          "migrosId": "200606000000",
+          "name": "Salatkäse",
+          "price": 2.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.97
+          },
+          "quantity": "150g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200606000000"
         }
       ]
     },
@@ -2540,6 +4070,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/200740500000"
+        },
+        {
+          "uid": "100028340",
+          "migrosId": "210154000000",
+          "name": "Reibkäse",
+          "price": 2.7,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.08
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/210154000000"
+        },
+        {
+          "uid": "100175780",
+          "migrosId": "210135000000",
+          "name": "Reibkäse",
+          "price": 2.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.27
+          },
+          "quantity": "130g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/210135000000"
+        },
+        {
+          "uid": "100005300",
+          "migrosId": "212380700000",
+          "name": "Grana Padano DOP",
+          "price": 5.3,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.12
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/212380700000"
         }
       ]
     },
@@ -2624,6 +4199,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/200703910000"
+        },
+        {
+          "uid": "100218063",
+          "migrosId": "200604900000",
+          "name": "Cottage Cheese",
+          "price": 2.2,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.1
+          },
+          "quantity": "1 Stück",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200604900000"
+        },
+        {
+          "uid": "100207818",
+          "migrosId": "200604310000",
+          "name": "Cottage Cheese 200g",
+          "price": 2.25,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.13
+          },
+          "quantity": "200g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200604310000"
+        },
+        {
+          "uid": "100051887",
+          "migrosId": "200633300800",
+          "name": "Cottage Cheese",
+          "price": 2.4,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.96
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200633300800"
         }
       ]
     },
@@ -2708,6 +4328,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/274502602200"
+        },
+        {
+          "uid": "100041795",
+          "migrosId": "153156500000",
+          "name": "Erbsen und Karotten",
+          "price": 1.7,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.65
+          },
+          "quantity": "260g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153156500000"
+        },
+        {
+          "uid": "100005609",
+          "migrosId": "153154000000",
+          "name": "Karotten und Erbsen",
+          "price": 1.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.33
+          },
+          "quantity": "540g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/153154000000"
+        },
+        {
+          "uid": "100052831",
+          "migrosId": "274580502100",
+          "name": "Karotten",
+          "price": 4.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.48
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/274580502100"
         }
       ]
     },
@@ -2792,6 +4457,42 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/521074600000"
+        },
+        {
+          "uid": "100193330",
+          "migrosId": "650275900000",
+          "name": "Zucchini",
+          "price": 3.95,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/650275900000"
+        },
+        {
+          "uid": "100193358",
+          "migrosId": "650276500000",
+          "name": "Zucchini",
+          "price": 3.95,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/650276500000"
+        },
+        {
+          "uid": "100193364",
+          "migrosId": "650253300000",
+          "name": "Zucchini",
+          "price": 3.5,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/650253300000"
         }
       ]
     },
@@ -2800,81 +4501,8 @@
       "name": "Broccoli",
       "pack": 500,
       "unit": "g",
-      "query": "Broccoli",
-      "candidates": [
-        {
-          "uid": "100025235",
-          "migrosId": "275704701000",
-          "name": "Broccoli",
-          "price": 4.8,
-          "priceUnit": {
-            "unit": "100g",
-            "value": 0.48
-          },
-          "quantity": "1 kg",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/275704701000"
-        },
-        {
-          "uid": "100142530",
-          "migrosId": "275780501000",
-          "name": "Broccoli",
-          "price": 8.5,
-          "priceUnit": {
-            "unit": "100g",
-            "value": 0.85
-          },
-          "quantity": "1 kg",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/275780501000"
-        },
-        {
-          "uid": "100143175",
-          "migrosId": "236380011300",
-          "name": "Broccoli",
-          "price": 2.3,
-          "priceUnit": {
-            "unit": "100g",
-            "value": 2.3
-          },
-          "quantity": "100 g",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/236380011300"
-        },
-        {
-          "uid": "100024248",
-          "migrosId": "275704902300",
-          "name": "Broccolini",
-          "price": 4.95,
-          "priceUnit": {
-            "unit": "100g",
-            "value": 3.3
-          },
-          "quantity": "200g",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/275704902300"
-        },
-        {
-          "uid": "100031579",
-          "migrosId": "275702902300",
-          "name": "Kohlröschen",
-          "price": null,
-          "priceUnit": null,
-          "quantity": "400g",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/275702902300"
-        }
-      ]
+      "query": "Broccoli frisch",
+      "candidates": []
     },
     {
       "id": "pepper",
@@ -2957,6 +4585,48 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/271703809300"
+        },
+        {
+          "uid": "100046933",
+          "migrosId": "271714902500",
+          "name": "Peperoni",
+          "price": 1.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.36
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/271714902500"
+        },
+        {
+          "uid": "100046945",
+          "migrosId": "271712802500",
+          "name": "Peperoncini",
+          "price": 0.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.95
+          },
+          "quantity": "100g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/271712802500"
+        },
+        {
+          "uid": "100052778",
+          "migrosId": "271704801000",
+          "name": "Peperoni",
+          "price": null,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/271704801000"
         }
       ]
     },
@@ -3041,6 +4711,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/271501501000"
+        },
+        {
+          "uid": "100145404",
+          "migrosId": "271502502100",
+          "name": "Gurken",
+          "price": 6.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.7
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/271502502100"
+        },
+        {
+          "uid": "100036569",
+          "migrosId": "156012600000",
+          "name": "Gurkenscheiben",
+          "price": 2.1,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.11
+          },
+          "quantity": "190g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/156012600000"
+        },
+        {
+          "uid": "100036577",
+          "migrosId": "156010000000",
+          "name": "Gewürzgurken",
+          "price": 2.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.02
+          },
+          "quantity": "290g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/156010000000"
         }
       ]
     },
@@ -3049,82 +4764,112 @@
       "name": "Tomaten",
       "pack": 500,
       "unit": "g",
-      "query": "Tomaten",
+      "query": "Tomaten frisch",
       "candidates": [
         {
-          "uid": "100005380",
-          "migrosId": "153232100000",
-          "name": "Tomaten",
-          "price": 0.6,
+          "uid": "100145942",
+          "migrosId": "200794400000",
+          "name": "Frischkäse",
+          "price": 5.9,
           "priceUnit": {
             "unit": "100g",
-            "value": 0.15
+            "value": 3.58
+          },
+          "quantity": "165g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/200794400000"
+        },
+        {
+          "uid": "100163817",
+          "migrosId": "130608600000",
+          "name": "Sauce",
+          "price": 3.75,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 1.34
+          },
+          "quantity": "280ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/130608600000"
+        },
+        {
+          "uid": "100026300",
+          "migrosId": "212800700000",
+          "name": "Frischkäse",
+          "price": 3.6,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.57
+          },
+          "quantity": "140g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/212800700000"
+        },
+        {
+          "uid": "100013881",
+          "migrosId": "130114000000",
+          "name": "Gnocchi",
+          "price": 4.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.24
           },
           "quantity": "400g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/153232100000"
+          "url": "https://www.migros.ch/de/product/130114000000"
         },
         {
-          "uid": "100207811",
-          "migrosId": "153252500000",
-          "name": "Tomaten",
-          "price": 1.6,
+          "uid": "100039998",
+          "migrosId": "131181200000",
+          "name": "Tapenade",
+          "price": 3.95,
           "priceUnit": {
             "unit": "100g",
-            "value": 0.4
+            "value": 1.88
           },
-          "quantity": "400g",
+          "quantity": "210g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/153252500000"
+          "url": "https://www.migros.ch/de/product/131181200000"
         },
         {
-          "uid": "100207991",
-          "migrosId": "153252400000",
-          "name": "Tomaten",
-          "price": 1.45,
+          "uid": "100039239",
+          "migrosId": "130111300000",
+          "name": "Ravioli",
+          "price": 4.95,
           "priceUnit": {
             "unit": "100g",
-            "value": 0.63
+            "value": 1.98
           },
-          "quantity": "230g",
+          "quantity": "250g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/153252400000"
+          "url": "https://www.migros.ch/de/product/130111300000"
         },
         {
-          "uid": "100135583",
-          "migrosId": "153216500000",
-          "name": "Tomaten",
-          "price": 3.1,
+          "uid": "100040001",
+          "migrosId": "131181100000",
+          "name": "Hummus Trio",
+          "price": 3.95,
           "priceUnit": {
             "unit": "100g",
-            "value": 0.78
+            "value": 1.88
           },
-          "quantity": "400g",
+          "quantity": "210g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/153216500000"
-        },
-        {
-          "uid": "100170153",
-          "migrosId": "153269900000",
-          "name": "Passierte Tomaten",
-          "price": 1.4,
-          "priceUnit": {
-            "unit": "100g",
-            "value": 0.28
-          },
-          "quantity": "500g",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/153269900000"
+          "url": "https://www.migros.ch/de/product/131181100000"
         }
       ]
     },
@@ -3133,82 +4878,121 @@
       "name": "Blattsalat",
       "pack": 1,
       "unit": "Stk.",
-      "query": "Blattsalat",
+      "query": "Kopfsalat",
       "candidates": [
         {
-          "uid": "100038079",
-          "migrosId": "131021800000",
-          "name": "Jungblattsalat",
+          "uid": "100033785",
+          "migrosId": "131001100000",
+          "name": "Kopfsalat",
+          "price": 1.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.13
+          },
+          "quantity": "160g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/131001100000"
+        },
+        {
+          "uid": "100033487",
+          "migrosId": "270680309200",
+          "name": "Kopfsalat",
           "price": 2.95,
           "priceUnit": {
-            "unit": "100g",
+            "unit": "piece",
             "value": 2.95
           },
-          "quantity": "100g",
+          "quantity": "1 Stück",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/131021800000"
+          "url": "https://www.migros.ch/de/product/270680309200"
         },
         {
-          "uid": "100160882",
-          "migrosId": "131090000000",
-          "name": "Jungblattsalat",
-          "price": 4.5,
+          "uid": "100211952",
+          "migrosId": "131003400000",
+          "name": "Kopfsalat mit Herz",
+          "price": null,
           "priceUnit": {
             "unit": "100g",
-            "value": 2.5
+            "value": 1
           },
-          "quantity": "180g",
+          "quantity": "200g",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/131090000000"
+          "url": "https://www.migros.ch/de/product/131003400000"
         },
         {
-          "uid": "100007712",
-          "migrosId": "270888702300",
-          "name": "Jungblattsalat",
-          "price": 1.5,
-          "priceUnit": {
-            "unit": "100g",
-            "value": 1.5
-          },
-          "quantity": "100g",
-          "subTitle": null,
-          "content": null,
-          "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/270888702300"
-        },
-        {
-          "uid": "100003950",
-          "migrosId": "270800813200",
-          "name": "Eichblattsalat",
-          "price": 1.95,
+          "uid": "100003964",
+          "migrosId": "270600909200",
+          "name": "Kopfsalat",
+          "price": 2.75,
           "priceUnit": {
             "unit": "piece",
-            "value": 1.95
+            "value": 2.75
           },
           "quantity": "1 Stück",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/270800813200"
+          "url": "https://www.migros.ch/de/product/270600909200"
         },
         {
-          "uid": "100003960",
-          "migrosId": "270800713200",
-          "name": "Eichblattsalat",
-          "price": 1.9,
+          "uid": "100193293",
+          "migrosId": "650274900000",
+          "name": "Kopfsalat",
+          "price": 3.95,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/650274900000"
+        },
+        {
+          "uid": "100193361",
+          "migrosId": "650273800000",
+          "name": "Kopfsalat",
+          "price": 3.95,
+          "priceUnit": null,
+          "quantity": null,
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/650273800000"
+        },
+        {
+          "uid": "100128869",
+          "migrosId": "131112000000",
+          "name": "Kopfsalat",
+          "price": 2.4,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 2.4
+          },
+          "quantity": "100g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/131112000000"
+        },
+        {
+          "uid": "100003748",
+          "migrosId": "270600509200",
+          "name": "Kopfsalat",
+          "price": 1.8,
           "priceUnit": {
             "unit": "piece",
-            "value": 1.9
+            "value": 1.8
           },
           "quantity": "1 Stück",
           "subTitle": null,
           "content": null,
           "isAvailable": null,
-          "url": "https://www.migros.ch/de/product/270800713200"
+          "url": "https://www.migros.ch/de/product/270600509200"
         }
       ]
     },
@@ -3293,6 +5077,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/263500313200"
+        },
+        {
+          "uid": "100144343",
+          "migrosId": "263501013200",
+          "name": "Zitrone",
+          "price": 1.2,
+          "priceUnit": {
+            "unit": "piece",
+            "value": 1.2
+          },
+          "quantity": "1 Stück",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/263501013200"
+        },
+        {
+          "uid": "100019803",
+          "migrosId": "113270000000",
+          "name": "Zitronen-Cake",
+          "price": 4.3,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.23
+          },
+          "quantity": "350g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/113270000000"
+        },
+        {
+          "uid": "100050514",
+          "migrosId": "113253600000",
+          "name": "Zitronen-Cake",
+          "price": 2.3,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.58
+          },
+          "quantity": "400g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/113253600000"
         }
       ]
     },
@@ -3377,6 +5206,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/277108110400"
+        },
+        {
+          "uid": "100002868",
+          "migrosId": "277100502400",
+          "name": "Schalotten",
+          "price": 1.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.39
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/277100502400"
+        },
+        {
+          "uid": "100056307",
+          "migrosId": "277107901000",
+          "name": "Zwiebeln",
+          "price": 1.7,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.17
+          },
+          "quantity": "1 kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/277107901000"
+        },
+        {
+          "uid": "100058299",
+          "migrosId": "277108202300",
+          "name": "Zwiebeln",
+          "price": 3.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.53
+          },
+          "quantity": "750g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/277108202300"
         }
       ]
     },
@@ -3461,6 +5335,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/160178600000"
+        },
+        {
+          "uid": "100030832",
+          "migrosId": "161617000000",
+          "name": "Spinat Italienne",
+          "price": 4.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.99
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/161617000000"
+        },
+        {
+          "uid": "100016419",
+          "migrosId": "161616200000",
+          "name": "Rahmspinat",
+          "price": 3.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.49
+          },
+          "quantity": "800g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/161616200000"
+        },
+        {
+          "uid": "100029332",
+          "migrosId": "162540100000",
+          "name": "Teigplätzli",
+          "price": 5.3,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.1
+          },
+          "quantity": "480g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/162540100000"
         }
       ]
     },
@@ -3599,6 +5518,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/103336500000"
+        },
+        {
+          "uid": "100049578",
+          "migrosId": "103336900000",
+          "name": "Rapsöl ",
+          "price": 9.9,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 1.98
+          },
+          "quantity": "500ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/103336900000"
+        },
+        {
+          "uid": "100049581",
+          "migrosId": "103388000000",
+          "name": "Rapsöl ",
+          "price": 7.95,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 3.18
+          },
+          "quantity": "250ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/103388000000"
+        },
+        {
+          "uid": "100049601",
+          "migrosId": "103388100000",
+          "name": "Rapsöl ",
+          "price": 12.2,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 2.44
+          },
+          "quantity": "500ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/103388100000"
         }
       ]
     },
@@ -3607,8 +5571,99 @@
       "name": "Salz",
       "pack": 500,
       "unit": "g",
-      "query": "Speisesalz",
-      "candidates": []
+      "query": "Jodsalz",
+      "candidates": [
+        {
+          "uid": "100001090",
+          "migrosId": "106223300000",
+          "name": "Salz",
+          "price": 1.05,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.11
+          },
+          "quantity": "1kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106223300000"
+        },
+        {
+          "uid": "100043843",
+          "migrosId": "106225000000",
+          "name": "Salz",
+          "price": 1.7,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.24
+          },
+          "quantity": "700g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106225000000"
+        },
+        {
+          "uid": "100006743",
+          "migrosId": "106225300000",
+          "name": "Salz",
+          "price": 2.5,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106225300000"
+        },
+        {
+          "uid": "100129342",
+          "migrosId": "106222500000",
+          "name": "Salz",
+          "price": 2.6,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 1.04
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106222500000"
+        },
+        {
+          "uid": "100192962",
+          "migrosId": "106225700000",
+          "name": "Salz",
+          "price": 1.6,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.23
+          },
+          "quantity": "700g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106225700000"
+        },
+        {
+          "uid": "100047383",
+          "migrosId": "106223500000",
+          "name": "Tafelsalz",
+          "price": 0.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.19
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106223500000"
+        }
+      ]
     },
     {
       "id": "pepperground",
@@ -3838,6 +5893,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/106130300000"
+        },
+        {
+          "uid": "100001492",
+          "migrosId": "106129600000",
+          "name": "Gemüse Extrakt",
+          "price": 19.95,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 3.33
+          },
+          "quantity": "600g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106129600000"
+        },
+        {
+          "uid": "100001523",
+          "migrosId": "106129200000",
+          "name": "Gemüse Extrakt",
+          "price": 8.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 3.53
+          },
+          "quantity": "250g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106129200000"
+        },
+        {
+          "uid": "100047613",
+          "migrosId": "106126900000",
+          "name": "Gemüsebouillon Würfel",
+          "price": 0.8,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.67
+          },
+          "quantity": "12 x 10g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/106126900000"
         }
       ]
     },
@@ -3976,6 +6076,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/104621800000"
+        },
+        {
+          "uid": "100133816",
+          "migrosId": "104621600000",
+          "name": "Weissmehl",
+          "price": 1.7,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.34
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104621600000"
+        },
+        {
+          "uid": "100049780",
+          "migrosId": "104679300000",
+          "name": "Weissmehl",
+          "price": 2.1,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.21
+          },
+          "quantity": "1kg",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104679300000"
+        },
+        {
+          "uid": "100216876",
+          "migrosId": "104600300000",
+          "name": "Weissmehl",
+          "price": 1.7,
+          "priceUnit": {
+            "unit": "100g",
+            "value": 0.34
+          },
+          "quantity": "500g",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/104600300000"
         }
       ]
     },
@@ -4060,6 +6205,51 @@
           "content": null,
           "isAvailable": null,
           "url": "https://www.migros.ch/de/product/204105600000"
+        },
+        {
+          "uid": "100008665",
+          "migrosId": "204107000000",
+          "name": "Vollrahm",
+          "price": 3.65,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 1.46
+          },
+          "quantity": "250ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/204107000000"
+        },
+        {
+          "uid": "100053483",
+          "migrosId": "204102800300",
+          "name": "Vollrahm",
+          "price": 3.6,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 1.44
+          },
+          "quantity": "250ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/204102800300"
+        },
+        {
+          "uid": "100053488",
+          "migrosId": "204106800100",
+          "name": "Vollrahm",
+          "price": 2.7,
+          "priceUnit": {
+            "unit": "100ml",
+            "value": 1.08
+          },
+          "quantity": "250ml",
+          "subTitle": null,
+          "content": null,
+          "isAvailable": null,
+          "url": "https://www.migros.ch/de/product/204106800100"
         }
       ]
     }
