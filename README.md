@@ -1,8 +1,21 @@
-# Family Food Planner – Migros (Version 1.9)
+# Family Food Planner – Migros (Version 2.0)
 
 Kostenlose Web-App auf GitHub Pages für 7 Tage × Frühstück, Mittag- und Abendessen, frei wählbares Wochenbudget und Personenzahl sowie eine Migros-Einkaufsliste.
 
 **Online:** https://mherfurthhtm.github.io/family-food-planner/
+
+## Übersichtliches Design (Version 2.0)
+
+Die Benutzeroberfläche wurde für den iPhone-Alltag neu gestaltet. Hauptfunktionen bleiben erhalten, und der lokale Datenspeicher (`ffp-migros-v1`) bleibt unverändert:
+
+- Ruhiger, heller Look mit gut lesbaren Texten, weniger Dekoration und klarer Budgetanzeige.
+- Wochenplan mit **sieben auswählbaren Wochentagen**. Anfänglich wird ein Tag mit Frühstück, Mittag- und Abendessen angezeigt. **«Ganze Woche»** zeigt auf Wunsch wieder alle sieben Tage gleichzeitig.
+- Budget, Anzahl Personen und Küchenstil können direkt auf der Startseite angepasst werden. Die Migros-Einkaufsliste ist aus dem Budgetbereich erreichbar.
+- Einkaufsliste nach **einzeln aufklappbaren Kategorien**. Bereits abgehakte Produkte, Artikelwahl, Einkaufslistenexport und manuelle Ergänzungen bleiben erhalten.
+- Mobile Navigation auf vier verständliche Hauptpunkte reduziert: **Wochenplan**, **Einkauf**, **Tagebuch**, **Mehr**. Unter «Mehr» liegen **Meine Kochbücher** und **Einstellungen**. Am Desktop bleiben alle fünf Bereiche direkt im Seitenmenü.
+- Kochbuchsammlungen zunächst eingeklappt, damit nicht sofort 124 Einzelrezepte erscheinen. Nach dem Aufklappen sind Rezeptdetails, Kochstil-Auswahl und eigene Rezepte unverändert verfügbar.
+- Preisberechnung, Migros-Verknüpfungen, Ernährungstagebuch, Kochbuchimport und Export bleiben funktional unangetastet.
+- Der automatische UI-Test `scripts/test-ui.cjs` wird in `.github/workflows/ui-check.yml` ausgeführt und überprüft Navigation, Tagesauswahl, Einkauf und die Verfügbarkeit der Rezepte.
 
 ## Automatischer Migros-Preisabgleich für alle 56 Zutaten (Version 1.9)
 
