@@ -238,6 +238,37 @@ main{max-width:1170px;padding:31px clamp(18px,3.3vw,46px) 76px}
  .day-grid.show-one-day{grid-template-columns:1fr}
 }
 
+
+/* Leichtere Einkaufsansicht mit einklappbaren Bereichen */
+.category{overflow:hidden;background:#fff}
+.category>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:17px 19px;cursor:pointer;list-style:none}
+.category>summary::-webkit-details-marker{display:none}
+.category>summary strong{font-size:14px;letter-spacing:-.2px}
+.category-trail{display:flex;gap:12px;align-items:center;color:#64748b;font-size:11px;white-space:nowrap}
+.category-trail span{display:inline-flex;align-items:center;justify-content:center;color:#0f766e;border-radius:50%;background:#e8f5f2;width:24px;height:24px;font-size:17px;transition:transform .18s}
+.category[open] .category-trail span{transform:rotate(180deg)}
+.category[open]>summary{border-bottom:1px solid var(--border)}
+.category>summary:hover{background:#f7fbfa}
+.shopping-panel .form-card{margin-top:12px}
+.shopping-panel .category{margin-bottom:10px}
+@media(max-width:700px){
+ .shopping-panel .tabs,.tabs{gap:7px}
+ .tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+ .tabs::-webkit-scrollbar{display:none}
+ .tabs .tab{flex-shrink:0;white-space:nowrap}
+ .shopping-panel .category>summary{padding:15px}
+ .product-row{grid-template-columns:22px minmax(0,1fr) minmax(105px,auto)}
+ .product-price{white-space:normal}
+ .product-price .remove-btn{display:inline-block;padding:5px}
+ .stat-grid{margin:12px 0 16px}
+ .stat-grid .stat{padding:12px}
+ .stat-grid .stat-icon{display:none}
+ .stat-grid .stat span{font-size:10px}
+ .stat-grid .stat strong{font-size:13px}
+ .summary-card .summary-line,.summary-card .summary-total,.summary-card .summary-divider{display:none}
+ .summary-card h3{margin:0 0 14px}
+ .summary-card{box-shadow:none}
+}
 </style>
 </head>
 <body>
@@ -253,7 +284,7 @@ main{max-width:1170px;padding:31px clamp(18px,3.3vw,46px) 76px}
         <button class="nav-item" data-view="settings"><span class="nav-symbol">⚙</span> Einstellungen</button>
       </nav>
       <div class="side-note"><span>⌂</span><p>Dein Einkauf. <strong>Einfach geplant.</strong></p><small>56 Migros-Zutaten · 167 Rezepte</small></div>
-      <div class="side-bottom"><span class="online-dot"></span> Migros · Version 1.9</div>
+      <div class="side-bottom"><span class="online-dot"></span> Migros · Version 2.0</div>
     </aside>
     <div class="main-wrap">
       <header class="topbar"><div class="topbar-start"><span class="tiny-logo">F</span><span class="eyebrow">Family Food</span></div><span id="week-range" class="week-range"></span></header>
@@ -559,10 +590,12 @@ function planPage(){
  <details class="price-info"><summary>Wie genau sind die Migros-Preise?</summary><p>Die App verwendet verfügbare Migros-Webpreise oder Richtwerte. Preise und Verfügbarkeit in der Migros Herzogenbuchsee können abweichen; die Einkaufssumme ist eine Schätzung.</p></details>`;
 }
 function formatAmount(q,unit){let v=Math.round(q*10)/10;return `${Number.isInteger(v)?v:v.toLocaleString('de-CH',{maximumFractionDigits:1})} ${unit}`}
-function listPage(){let b=basket(state.plan),done=b.rows.filter(p=>state.checked[p.key]).length,filter=state.filter;let shown=b.rows.filter(r=>filter==='Alle'||r.category===filter);let cats=[...new Set(shown.map(r=>r.category))];return `<div class="page-intro"><div><div class="kicker">ALLES AUF EINER LISTE</div><h1>Deine Einkaufsliste</h1><p>${done} von ${b.rows.length} Positionen abgehakt · Packungsgrössen berücksichtigt · Fremdmarken möglich</p><p style="margin-top:9px"><strong>📍 Einkaufsfiliale: Migros MM Herzogenbuchsee</strong> · Bernstrasse 33, 3360 Herzogenbuchsee</p></div><button class="btn" data-action="copy">⧉ Liste kopieren</button></div>
+let shoppingOpen=new Set();
+let shoppingCategoriesReady=false;
+function listPage(){let b=basket(state.plan),done=b.rows.filter(p=>state.checked[p.key]).length,filter=state.filter;let shown=b.rows.filter(r=>filter==='Alle'||r.category===filter);let cats=[...new Set(shown.map(r=>r.category))];if(!shoppingCategoriesReady&&cats.length){shoppingOpen.add(cats[0]);shoppingCategoriesReady=true;}return `<div class="page-intro"><div><div class="kicker">ALLES AUF EINER LISTE</div><h1>Deine Einkaufsliste</h1><p>${done} von ${b.rows.length} Positionen abgehakt · Packungsgrössen berücksichtigt · Fremdmarken möglich</p><p style="margin-top:9px"><strong>📍 Einkaufsfiliale: Migros MM Herzogenbuchsee</strong> · Bernstrasse 33, 3360 Herzogenbuchsee</p></div><button class="btn" data-action="copy">⧉ Liste kopieren</button></div>
  <div class="stat-grid"><div class="stat"><div class="stat-icon">💳</div><div><span>Gesamt geschätzt</span><strong>${money(b.total)}</strong></div></div><div class="stat"><div class="stat-icon">✅</div><div><span>Bereits im Wagen</span><strong>${done} / ${b.rows.length}</strong></div></div><div class="stat"><div class="stat-icon">💚</div><div><span>Budgetrest</span><strong class="${b.total>state.config.budget?'budget-over':'budget-ok'}">${money(state.config.budget-b.total)}</strong></div></div></div>
  <div class="tabs">${['Alle',...categories.filter(c=>b.rows.some(r=>r.category===c))].map(c=>`<button class="tab ${filter===c?'active':''}" data-action="filter" data-filter="${esc(c)}">${esc(c)}</button>`).join('')}</div>
- <div class="shopping-panel"><div>${cats.map(c=>`<section class="category"><h3>${esc(c)}<small>${shown.filter(r=>r.category===c).length} Produkte</small></h3>${shown.filter(r=>r.category===c).map(p=>`<label class="product-row ${state.checked[p.key]?'checked':''}"><input type="checkbox" data-action="check" data-key="${esc(p.key)}" ${state.checked[p.key]?'checked':''}><span><span class="product-name">${esc(p.name)}</span><span class="product-meta">${p.extra?'Manuell · '+p.packs+' Packung(en)':`${p.weighed?`Gewichtsware · ca. ${formatAmount(p.amount,p.unit)} · Preis je ${formatAmount(p.pack,p.unit)}`:`${p.packs} × ${formatAmount(p.pack,p.unit)} · Bedarf ${formatAmount(p.amount,p.unit)}`}`}</span></span><span class="product-price">${money(p.cost)}${p.extra?`<button class="remove-btn" type="button" data-action="remove-extra" data-id="${esc(p.id)}">Entfernen</button>`:`<small>${p.priceOrigin==='manual'?'Manuell erfasster Preis · nicht live geprüft':p.priceOrigin==='auto'?'Migros-Webpreis vom '+new Date(p.updatedAt).toLocaleDateString('de-CH')+' · Filiale ungeprüft':p.priceOrigin==='migros-web'?'Migros-Onlinepreis · Filiale ungeprüft':'Richtpreis · Filialpreis unbestätigt'}</small>${(p.priceOrigin==='migros-web'||p.priceOrigin==='auto')&&p.sourceUrl?`<a class="remove-btn" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Preisquelle</a>`:''}<button class="remove-btn" type="button" data-action="assign-product" data-id="${esc(p.id)}">Artikel wählen</button>`}</span></label>`).join('')}</section>`).join('')||`<div class="empty">Keine Produkte in dieser Kategorie.</div>`}
+ <div class="shopping-panel"><div>${cats.map(c=>`<details class="category" data-shopping-category="${esc(c)}" ${shoppingOpen.has(c)?'open':''}><summary><strong>${esc(c)}</strong><span class="category-trail">${shown.filter(r=>r.category===c).length} Produkte <span aria-hidden="true">⌄</span></span></summary>${shown.filter(r=>r.category===c).map(p=>`<label class="product-row ${state.checked[p.key]?'checked':''}"><input type="checkbox" data-action="check" data-key="${esc(p.key)}" ${state.checked[p.key]?'checked':''}><span><span class="product-name">${esc(p.name)}</span><span class="product-meta">${p.extra?'Manuell · '+p.packs+' Packung(en)':`${p.weighed?`Gewichtsware · ca. ${formatAmount(p.amount,p.unit)} · Preis je ${formatAmount(p.pack,p.unit)}`:`${p.packs} × ${formatAmount(p.pack,p.unit)} · Bedarf ${formatAmount(p.amount,p.unit)}`}`}</span></span><span class="product-price">${money(p.cost)}${p.extra?`<button class="remove-btn" type="button" data-action="remove-extra" data-id="${esc(p.id)}">Entfernen</button>`:`<small>${p.priceOrigin==='manual'?'Manuell erfasster Preis · nicht live geprüft':p.priceOrigin==='auto'?'Migros-Webpreis vom '+new Date(p.updatedAt).toLocaleDateString('de-CH')+' · Filiale ungeprüft':p.priceOrigin==='migros-web'?'Migros-Onlinepreis · Filiale ungeprüft':'Richtpreis · Filialpreis unbestätigt'}</small>${(p.priceOrigin==='migros-web'||p.priceOrigin==='auto')&&p.sourceUrl?`<a class="remove-btn" href="${esc(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Preisquelle</a>`:''}<button class="remove-btn" type="button" data-action="assign-product" data-id="${esc(p.id)}">Artikel wählen</button>`}</span></label>`).join('')}</details>`).join('')||`<div class="empty">Keine Produkte in dieser Kategorie.</div>`}
  <section class="form-card"><h2>Etwas hinzufügen?</h2><p>Jeden Artikel aus dem Migros-Sortiment ergänzen – auch Fremdmarken, Getränke und Haushalt. Preise selber aus Migros.ch übernehmen.</p><form class="extra-form" id="extra-form"><label class="sr-only" for="extra-name">Artikelname</label><input id="extra-name" name="name" placeholder="Vollständiger Artikelname" maxlength="100" required><label class="sr-only" for="extra-price">Preis je Stück CHF</label><input id="extra-price" name="price" placeholder="Preis CHF" type="number" min="0" max="10000" step="0.01" required><label class="sr-only" for="extra-quantity">Anzahl Packungen</label><input id="extra-quantity" name="quantity" placeholder="Anzahl" type="number" min="1" max="999" step="1" value="1" required><label class="sr-only" for="extra-url">Migros-Produktlink</label><input id="extra-url" name="url" type="url" placeholder="https://www.migros.ch/de/product/... (optional)" style="flex-basis:100%"><button class="btn primary" type="submit">+ Artikel hinzufügen</button></form><p class="smallprint">Manuelle Auswahl, keine automatische Preis- oder Verfügbarkeitsprüfung.</p></section></div>
  <aside class="summary-card"><h3>Dein Einkaufsbudget</h3><div class="summary-line"><span>Produkte</span><strong>${b.rows.length}</strong></div><div class="summary-line"><span>Bereits abgehakt</span><strong>${done}</strong></div><div class="summary-line"><span>Verfügbares Budget</span><strong>${money(state.config.budget)}</strong></div><div class="summary-divider"></div><div class="summary-total"><span>Geschätzter Betrag</span><strong>${money(b.total)}</strong></div><div class="summary-line"><span>${b.total>state.config.budget?'Budgetüberschreitung':'Verbleibend'}</span><strong class="${b.total>state.config.budget?'budget-over':'budget-ok'}">${money(Math.abs(state.config.budget-b.total))}</strong></div><div class="summary-divider"></div><button class="btn primary wide" data-action="copy">⧉ Einkaufsliste kopieren</button><button class="btn wide" data-action="print">⇩ Drucken / PDF</button><a class="btn wide" href="https://www.migros.ch/de/category/home" rel="noopener noreferrer" target="_blank">Sortiment auf Migros.ch öffnen</a><button class="btn wide" data-action="reset-checks">↻ Häkchen zurücksetzen</button><p class="smallprint">Bei «Richtpreis» ist kein konkreter Migros-Artikel hinterlegt. Verwende «Artikel wählen», um einen Artikel aus dem gesamten Migros-Sortiment mit Packung, Link und Preis zuzuordnen. Manuell erfasste Preise sind nicht live geprüft.</p></aside></div>`}
 
@@ -747,13 +780,14 @@ document.addEventListener('click',e=>{const el=e.target.closest('[data-action], 
  if(a==='swap')swapDialog(Number(el.dataset.day),el.dataset.type);
  if(a==='choose'){state.plan[Number(el.dataset.day)][el.dataset.type]=el.dataset.id;save();closeModal();render();toast('Gericht & Einkaufsliste aktualisiert ✓')}
  if(a==='copy')copyList();if(a==='print')window.print();
- if(a==='filter'){state.filter=el.dataset.filter;render()}
+ if(a==='filter'){state.filter=el.dataset.filter;if(state.filter!=='Alle')shoppingOpen.add(state.filter);render()}
  if(a==='reset-checks'){state.checked={};save();render();toast('Alle Häkchen zurückgesetzt')}
  if(a==='assign-product'){e.preventDefault();e.stopPropagation();productChoiceDialog(el.dataset.id);return}
  if(a==='clear-product-choice'){e.preventDefault();e.stopPropagation();delete state.productChoices[el.dataset.id];save();closeModal();render();toast('Richtpreis wiederhergestellt');return}
  if(a==='remove-extra'){e.preventDefault();state.extras=state.extras.filter(x=>x.id!==el.dataset.id);delete state.checked[el.dataset.id];save();render();toast('Produkt entfernt')}
  if(a==='export')exportData();if(a==='reset'){if(confirm('Alle Einstellungen, Pläne und Häkchen wirklich zurücksetzen?')){localStorage.removeItem('ffp-migros-v1');location.reload()}}
 });
+document.addEventListener('toggle',e=>{const d=e.target;if(d instanceof HTMLDetailsElement&&d.dataset.shoppingCategory){if(d.open)shoppingOpen.add(d.dataset.shoppingCategory);else shoppingOpen.delete(d.dataset.shoppingCategory)}},true);
 document.addEventListener('change',e=>{if(e.target.dataset.action==='nutrition-person'){const p=Number(e.target.value);if(Number.isInteger(p)&&p>=0&&p<state.config.people){state.nutritionPerson=p;render()}return}if(e.target.id==='book-file'){const selected=e.target.files&&e.target.files[0];if(selected)importBookFile(selected);e.target.value='';return}if(e.target.dataset.action==='check'){state.checked[e.target.dataset.key]=e.target.checked;save();render()}});
 document.addEventListener('submit',e=>{if(e.target.id==='product-choice-form'){e.preventDefault();saveProductChoice(new FormData(e.target));return}
  if(e.target.id==='quick-settings-form'){e.preventDefault();const f=new FormData(e.target),budget=Number(f.get('budget')),people=Number(f.get('people'));if(!Number.isFinite(budget)||budget<0.05||budget>1000000||!Number.isInteger(people)||people<1||people>100){toast('Bitte gültiges Budget und Personenzahl eingeben');return;}state.config.budget=budget;state.config.people=people;state.config.bookStyle=['mixed','hearty','fitness'].includes(f.get('bookStyle'))?f.get('bookStyle'):'mixed';generate();render();toast('Wochenplan mit neuem Kochstil erstellt ✓');return;}
