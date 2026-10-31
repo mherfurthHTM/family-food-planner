@@ -7,48 +7,502 @@
       "name": "Vollkorn-Haferflocken",
       "migrosId": "104202100000",
       "price": 1.4,
+      "pack": 1000,
+      "unit": "g",
       "url": "https://www.migros.ch/de/product/104202100000",
-      "checkedAt": "2026-10-31T21:26:25.682Z",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
       "source": "migros-unofficial"
     },
     "milk": {
       "name": "Vollmilch",
       "migrosId": "204016100000",
       "price": 1.6,
+      "pack": 1000,
+      "unit": "ml",
       "url": "https://www.migros.ch/de/product/204016100000",
-      "checkedAt": "2026-10-31T21:26:25.682Z",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
       "source": "migros-unofficial"
     },
     "eggs": {
       "name": "Eier",
       "migrosId": "196025001000",
       "price": 5.25,
+      "pack": 10,
+      "unit": "Stk.",
       "url": "https://www.migros.ch/de/product/196025001000",
-      "checkedAt": "2026-10-31T21:26:25.682Z",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
       "source": "migros-unofficial"
     },
     "rice": {
       "name": "Langkornreis",
       "migrosId": "104415300000",
       "price": 1.35,
+      "pack": 1000,
+      "unit": "g",
       "url": "https://www.migros.ch/de/product/104415300000",
-      "checkedAt": "2026-10-31T21:26:25.682Z",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
       "source": "migros-unofficial"
     },
     "quark": {
       "name": "Magerquark",
       "migrosId": "200803100000",
       "price": 1.3,
+      "pack": 500,
+      "unit": "g",
       "url": "https://www.migros.ch/de/product/200803100000",
-      "checkedAt": "2026-10-31T21:26:25.682Z",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
       "source": "migros-unofficial"
     },
     "carrot": {
       "name": "Karotten",
       "migrosId": "274502502400",
       "price": 1.95,
+      "pack": 1000,
+      "unit": "g",
       "url": "https://www.migros.ch/de/product/274502502400",
-      "checkedAt": "2026-10-31T21:26:25.682Z",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "yogurt": {
+      "name": "Joghurt",
+      "migrosId": "205050800000",
+      "price": 2.7,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/205050800000",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "skyr": {
+      "name": "Skyr",
+      "migrosId": "205224600000",
+      "price": 2.65,
+      "pack": 450,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/205224600000",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "banana": {
+      "name": "Banane",
+      "migrosId": "264280101000",
+      "price": 2.95,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/264280101000",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "apple": {
+      "name": "Äpfel",
+      "migrosId": "260215704100",
+      "price": 2.8,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/260215704100",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "pears": {
+      "name": "Birnen",
+      "migrosId": "260533803400",
+      "price": 3.6,
+      "pack": 1500,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/260533803400",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "berries": {
+      "name": "Himbeeren ",
+      "migrosId": "160201100000",
+      "price": 3.7,
+      "pack": 300,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/160201100000",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "jam": {
+      "name": "Konfitüre",
+      "migrosId": "151003300000",
+      "price": 1.2,
+      "pack": 450,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/151003300000",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "spaghetti": {
+      "name": "Spaghetti",
+      "migrosId": "104102000000",
+      "price": 1.2,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/104102000000",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "pasta": {
+      "name": "Penne",
+      "migrosId": "104063100000",
+      "price": 1.9,
+      "pack": 500,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/104063100000",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "couscous": {
+      "name": "Couscous",
+      "migrosId": "104474100000",
+      "price": 2.95,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/104474100000",
+      "checkedAt": "2026-10-31T21:29:41.582Z",
+      "source": "migros-unofficial"
+    },
+    "potato": {
+      "name": "Kartoffeln",
+      "migrosId": "274460003300",
+      "price": 3.75,
+      "pack": 2500,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/274460003300",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "sweetpotato": {
+      "name": "Süsskartoffeln",
+      "migrosId": "274300601000",
+      "price": 1.8,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/274300601000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "passata": {
+      "name": "Passierte Tomaten",
+      "migrosId": "153269900000",
+      "price": 1.4,
+      "pack": 500,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/153269900000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "coconut": {
+      "name": "Kokosnussmilch",
+      "migrosId": "158586000000",
+      "price": 1.4,
+      "pack": 400,
+      "unit": "ml",
+      "url": "https://www.migros.ch/de/product/158586000000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "chicken": {
+      "name": "Pouletbrust",
+      "migrosId": "231525586000",
+      "price": 3.2,
+      "pack": 100,
+      "unit": "g",
+      "weighed": true,
+      "url": "https://www.migros.ch/de/product/231525586000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "mince": {
+      "name": "Rindshackfleisch",
+      "migrosId": "220220085000",
+      "price": 1.55,
+      "pack": 100,
+      "unit": "g",
+      "weighed": true,
+      "url": "https://www.migros.ch/de/product/220220085000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "tofu": {
+      "name": "Tofu",
+      "migrosId": "130910000000",
+      "price": 3.3,
+      "pack": 400,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/130910000000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "salmon": {
+      "name": "Lachsfilets",
+      "migrosId": "165032500000",
+      "price": 5.95,
+      "pack": 250,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/165032500000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "mozzarella": {
+      "name": "Mozzarella",
+      "migrosId": "200609600000",
+      "price": 2.4,
+      "pack": 400,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/200609600000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "feta": {
+      "name": "Feta",
+      "migrosId": "212595100000",
+      "price": 4.8,
+      "pack": 200,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/212595100000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "cheese": {
+      "name": "Reibkäse",
+      "migrosId": "210134100000",
+      "price": 4.5,
+      "pack": 250,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/210134100000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "cottage": {
+      "name": "Cottage Cheese",
+      "migrosId": "200604100000",
+      "price": 1.85,
+      "pack": 200,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/200604100000",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "zucchini": {
+      "name": "Zucchetti",
+      "migrosId": "273705702400",
+      "price": 2.5,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/273705702400",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "pepper": {
+      "name": "Peperoni",
+      "migrosId": "271708513200",
+      "price": 2.2,
+      "pack": 500,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/271708513200",
+      "checkedAt": "2026-10-31T21:29:42.124Z",
+      "source": "migros-unofficial"
+    },
+    "cucumber": {
+      "name": "Gurken",
+      "migrosId": "271580313200",
+      "price": 1.5,
+      "pack": 1,
+      "unit": "Stk.",
+      "url": "https://www.migros.ch/de/product/271580313200",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "lemon": {
+      "name": "Zitrone",
+      "migrosId": "263500513200",
+      "price": 0.5,
+      "pack": 1,
+      "unit": "Stk.",
+      "url": "https://www.migros.ch/de/product/263500513200",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "onion": {
+      "name": "Zwiebeln",
+      "migrosId": "277107908400",
+      "price": 1.7,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/277107908400",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "spinach": {
+      "name": "Blattspinat",
+      "migrosId": "161616700000",
+      "price": 2.95,
+      "pack": 500,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/161616700000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "peas": {
+      "name": "Gartenerbsen",
+      "migrosId": "161630400000",
+      "price": 4.2,
+      "pack": 750,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/161630400000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "oil": {
+      "name": "Rapsöl ",
+      "migrosId": "103323200000",
+      "price": 3.5,
+      "pack": 1000,
+      "unit": "ml",
+      "url": "https://www.migros.ch/de/product/103323200000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "pepperground": {
+      "name": "Pfeffer",
+      "migrosId": "106301800000",
+      "price": 1.4,
+      "pack": 50,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/106301800000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "paprika": {
+      "name": "Paprika delikatess",
+      "migrosId": "106308600000",
+      "price": 1.55,
+      "pack": 50,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/106308600000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "cinnamon": {
+      "name": "Zimt",
+      "migrosId": "106213000000",
+      "price": 1.6,
+      "pack": 35,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/106213000000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "broth": {
+      "name": "Bouillon Gemüse",
+      "migrosId": "106100700000",
+      "price": 0.85,
+      "pack": 140,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/106100700000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "herbs": {
+      "name": "Italienische Kräuter",
+      "migrosId": "106294200000",
+      "price": 1.75,
+      "pack": 32,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/106294200000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "flour": {
+      "name": "Weissmehl",
+      "migrosId": "104611000000",
+      "price": 1.9,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/104611000000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "cream": {
+      "name": "Vollrahm",
+      "migrosId": "204111200000",
+      "price": 3.4,
+      "pack": 500,
+      "unit": "ml",
+      "url": "https://www.migros.ch/de/product/204111200000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "bread": {
+      "name": "St. Galler Ruchbrot",
+      "migrosId": "111497910000",
+      "price": 2.8,
+      "pack": 500,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/111497910000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "peanut": {
+      "name": "Erdnussbutter",
+      "migrosId": "151200400000",
+      "price": 2.65,
+      "pack": 250,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/151200400000",
+      "checkedAt": "2026-10-31T21:29:42.495Z",
+      "source": "migros-unofficial"
+    },
+    "kidney": {
+      "name": "Rote Kidneybohnen",
+      "migrosId": "153012400000",
+      "price": 0.95,
+      "pack": 310,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/153012400000",
+      "checkedAt": "2026-10-31T21:29:42.708Z",
+      "source": "migros-unofficial"
+    },
+    "chickpea": {
+      "name": "Kichererbsen",
+      "migrosId": "153134000000",
+      "price": 1.05,
+      "pack": 245,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/153134000000",
+      "checkedAt": "2026-10-31T21:29:42.708Z",
+      "source": "migros-unofficial"
+    },
+    "salad": {
+      "name": "Kopfsalat",
+      "migrosId": "270680309200",
+      "price": 2.95,
+      "pack": 1,
+      "unit": "Stk.",
+      "url": "https://www.migros.ch/de/product/270680309200",
+      "checkedAt": "2026-10-31T21:29:42.708Z",
+      "source": "migros-unofficial"
+    },
+    "salt": {
+      "name": "Tafelsalz",
+      "migrosId": "106223500000",
+      "price": 0.95,
+      "pack": 500,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/106223500000",
+      "checkedAt": "2026-10-31T21:29:42.708Z",
+      "source": "migros-unofficial"
+    },
+    "broccoli": {
+      "name": "Broccoli",
+      "migrosId": "275704701000",
+      "price": 4.8,
+      "pack": 1000,
+      "unit": "g",
+      "url": "https://www.migros.ch/de/product/275704701000",
+      "checkedAt": "2026-10-31T21:29:42.708Z",
       "source": "migros-unofficial"
     }
   }
