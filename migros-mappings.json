@@ -1,0 +1,267 @@
+{
+  "schemaVersion": 1,
+  "source": "migros-unofficial",
+  "priceType": "online-not-store-confirmed",
+  "products": {
+    "oats": {
+      "migrosId": "104202100000",
+      "nameContains": "vollkorn-haferflocken",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "milk": {
+      "migrosId": "204016100000",
+      "nameContains": "vollmilch",
+      "pack": 1000,
+      "unit": "ml"
+    },
+    "yogurt": {
+      "migrosId": "205003000000",
+      "nameContains": "joghurt",
+      "pack": 500,
+      "unit": "g"
+    },
+    "quark": {
+      "migrosId": "200803100000",
+      "nameContains": "magerquark",
+      "pack": 500,
+      "unit": "g"
+    },
+    "skyr": {
+      "migrosId": "205224600000",
+      "nameContains": "skyr",
+      "pack": 450,
+      "unit": "g"
+    },
+    "eggs": {
+      "migrosId": "196025001000",
+      "nameContains": "eier",
+      "pack": 10,
+      "unit": "Stk."
+    },
+    "banana": {
+      "migrosId": "264280101000",
+      "nameContains": "banane",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "apple": {
+      "migrosId": "260215704100",
+      "nameContains": "äpfel",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "pears": {
+      "migrosId": "260533803400",
+      "nameContains": "birnen",
+      "pack": 1500,
+      "unit": "g"
+    },
+    "berries": {
+      "migrosId": "160201100000",
+      "nameContains": "himbeeren",
+      "pack": 300,
+      "unit": "g"
+    },
+    "jam": {
+      "migrosId": "151003300000",
+      "nameContains": "konfitüre",
+      "pack": 450,
+      "unit": "g"
+    },
+    "rice": {
+      "migrosId": "104415300000",
+      "nameContains": "langkornreis",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "spaghetti": {
+      "migrosId": "104102000000",
+      "nameContains": "spaghetti",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "pasta": {
+      "migrosId": "104063100000",
+      "nameContains": "penne",
+      "pack": 500,
+      "unit": "g"
+    },
+    "couscous": {
+      "migrosId": "104474100000",
+      "nameContains": "couscous",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "potato": {
+      "migrosId": "274460003300",
+      "nameContains": "kartoffeln",
+      "pack": 2500,
+      "unit": "g"
+    },
+    "sweetpotato": {
+      "migrosId": "274300601000",
+      "nameContains": "süsskartoffeln",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "passata": {
+      "migrosId": "153269900000",
+      "nameContains": "passierte tomaten",
+      "pack": 500,
+      "unit": "g"
+    },
+    "coconut": {
+      "migrosId": "158586000000",
+      "nameContains": "kokosnussmilch",
+      "pack": 400,
+      "unit": "ml"
+    },
+    "chicken": {
+      "migrosId": "231525586000",
+      "nameContains": "pouletbrust",
+      "pack": 100,
+      "unit": "g",
+      "weighed": true
+    },
+    "mince": {
+      "migrosId": "220220085000",
+      "nameContains": "rindshackfleisch",
+      "pack": 100,
+      "unit": "g",
+      "weighed": true
+    },
+    "tofu": {
+      "migrosId": "130910000000",
+      "nameContains": "tofu",
+      "pack": 400,
+      "unit": "g"
+    },
+    "salmon": {
+      "migrosId": "165032500000",
+      "nameContains": "lachsfilets",
+      "pack": 250,
+      "unit": "g"
+    },
+    "mozzarella": {
+      "migrosId": "200609600000",
+      "nameContains": "mozzarella",
+      "pack": 400,
+      "unit": "g"
+    },
+    "feta": {
+      "migrosId": "212595100000",
+      "nameContains": "feta",
+      "pack": 200,
+      "unit": "g"
+    },
+    "cheese": {
+      "migrosId": "210134100000",
+      "nameContains": "reibkäse",
+      "pack": 250,
+      "unit": "g"
+    },
+    "cottage": {
+      "migrosId": "200604100000",
+      "nameContains": "cottage cheese",
+      "pack": 200,
+      "unit": "g"
+    },
+    "carrot": {
+      "migrosId": "274502502400",
+      "nameContains": "karotten",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "zucchini": {
+      "migrosId": "273705702400",
+      "nameContains": "zucchetti",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "pepper": {
+      "migrosId": "271708513200",
+      "nameContains": "peperoni",
+      "pack": 500,
+      "unit": "g"
+    },
+    "cucumber": {
+      "migrosId": "271580313200",
+      "nameContains": "gurken",
+      "pack": 1,
+      "unit": "Stk."
+    },
+    "lemon": {
+      "migrosId": "263500513200",
+      "nameContains": "zitrone",
+      "pack": 1,
+      "unit": "Stk."
+    },
+    "onion": {
+      "migrosId": "277107908400",
+      "nameContains": "zwiebeln",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "spinach": {
+      "migrosId": "161616700000",
+      "nameContains": "blattspinat",
+      "pack": 500,
+      "unit": "g"
+    },
+    "peas": {
+      "migrosId": "161630400000",
+      "nameContains": "gartenerbsen",
+      "pack": 750,
+      "unit": "g"
+    },
+    "oil": {
+      "migrosId": "103323200000",
+      "nameContains": "rapsöl",
+      "pack": 1000,
+      "unit": "ml"
+    },
+    "pepperground": {
+      "migrosId": "106301800000",
+      "nameContains": "pfeffer",
+      "pack": 50,
+      "unit": "g"
+    },
+    "paprika": {
+      "migrosId": "106308600000",
+      "nameContains": "paprika delikatess",
+      "pack": 50,
+      "unit": "g"
+    },
+    "cinnamon": {
+      "migrosId": "106213000000",
+      "nameContains": "zimt",
+      "pack": 35,
+      "unit": "g"
+    },
+    "broth": {
+      "migrosId": "106100700000",
+      "nameContains": "bouillon gemüse",
+      "pack": 140,
+      "unit": "g"
+    },
+    "herbs": {
+      "migrosId": "106294200000",
+      "nameContains": "italienische kräuter",
+      "pack": 32,
+      "unit": "g"
+    },
+    "flour": {
+      "migrosId": "104611000000",
+      "nameContains": "weissmehl",
+      "pack": 1000,
+      "unit": "g"
+    },
+    "cream": {
+      "migrosId": "204111200000",
+      "nameContains": "vollrahm",
+      "pack": 500,
+      "unit": "ml"
+    }
+  }
+}
