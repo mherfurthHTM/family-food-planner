@@ -2,5 +2,54 @@
   "schemaVersion": 1,
   "store": "Migros MM Herzogenbuchsee",
   "storePricesVerified": false,
-  "items": {}
+  "items": {
+    "oats": {
+      "name": "Vollkorn-Haferflocken",
+      "migrosId": "104202100000",
+      "price": 1.4,
+      "url": "https://www.migros.ch/de/product/104202100000",
+      "checkedAt": "2026-10-31T21:21:38.390Z",
+      "source": "migros-unofficial"
+    },
+    "milk": {
+      "name": "Vollmilch",
+      "migrosId": "204016100000",
+      "price": 1.6,
+      "url": "https://www.migros.ch/de/product/204016100000",
+      "checkedAt": "2026-10-31T21:21:38.390Z",
+      "source": "migros-unofficial"
+    },
+    "eggs": {
+      "name": "Eier",
+      "migrosId": "196025001000",
+      "price": 5.25,
+      "url": "https://www.migros.ch/de/product/196025001000",
+      "checkedAt": "2026-10-31T21:21:38.390Z",
+      "source": "migros-unofficial"
+    },
+    "rice": {
+      "name": "Langkornreis",
+      "migrosId": "104415300000",
+      "price": 1.35,
+      "url": "https://www.migros.ch/de/product/104415300000",
+      "checkedAt": "2026-10-31T21:21:38.391Z",
+      "source": "migros-unofficial"
+    },
+    "quark": {
+      "name": "Magerquark",
+      "migrosId": "200803100000",
+      "price": 1.3,
+      "url": "https://www.migros.ch/de/product/200803100000",
+      "checkedAt": "2026-10-31T21:21:38.391Z",
+      "source": "migros-unofficial"
+    },
+    "carrot": {
+      "name": "Karotten",
+      "migrosId": "274502502400",
+      "price": 1.95,
+      "url": "https://www.migros.ch/de/product/274502502400",
+      "checkedAt": "2026-10-31T21:21:38.391Z",
+      "source": "migros-unofficial"
+    }
+  }
 }
