@@ -9,7 +9,7 @@ on:
     paths:
       - '.github/workflows/migros-prices.yml'
       - 'scripts/refresh-migros-prices.cjs'
-      - 'scripts/discover-migros-products.cjs'
+      - 'migros-mappings.json'
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ concurrency:
 jobs:
   update-prices:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -31,13 +31,11 @@ jobs:
         run: npm install --no-save --no-package-lock --ignore-scripts migros-api-wrapper@1.1.37
       - name: Eindeutig zugeordnete Migros-Webpreise prüfen
         run: node scripts/refresh-migros-prices.cjs
-      - name: Weitere Rezeptzutaten im Migros-Webkatalog recherchieren
-        run: node scripts/discover-migros-products.cjs
       - name: Verifizierte Daten veröffentlichen
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add migros-prices.json migros-candidates.json
+          git add migros-prices.json
           if ! git diff --cached --quiet; then
             git commit -m "Migros-Webpreise aktualisieren (automatisch)"
             git push
